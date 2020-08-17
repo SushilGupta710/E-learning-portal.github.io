@@ -1,0 +1,20 @@
+SMAP
+profile_jsp.java
+JSP
+*S JSP
+*F
++ 0 profile.jsp
+profile.jsp
++ 1 bootstraplinks.jsp
+bootstraplinks.jsp
++ 2 navbar.jsp
+navbar.jsp
+*L
+5,4:50
+5#1,11:53
+8#0:64
+5#2,4:65
+5#1,11:68
+8#2,50:79
+9#0,47:128
+*E

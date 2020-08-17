@@ -1,0 +1,18 @@
+SMAP
+adminlog_jsp.java
+JSP
+*S JSP
+*F
++ 0 adminlog.jsp
+adminlog.jsp
++ 1 navbar.jsp
+navbar.jsp
++ 2 bootstraplinks.jsp
+bootstraplinks.jsp
+*L
+5,4:50
+5#1,4:53
+5#2,11:56
+8#1,50:67
+8#0,49:116
+*E
