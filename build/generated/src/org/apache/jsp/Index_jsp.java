@@ -143,12 +143,12 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"carousel-item active\" data-interval=\"10000\">\n");
       out.write("                        <img src=\"Images/1.jpg\" class=\"d-block w-100\" alt=\"...\">\n");
       out.write("                    </div>\n");
-      out.write("                    <div class=\"carousel-item\" data-interval=\"2000\">\n");
+      out.write("<!--                    <div class=\"carousel-item\" data-interval=\"20000\">\n");
       out.write("                        <img src=\"Images/2.jpg\" class=\"d-block w-100\" alt=\"...\">\n");
       out.write("                    </div>\n");
       out.write("                    <div class=\"carousel-item\">\n");
       out.write("                        <img src=\"Images/3.jpg\" class=\"d-block w-100\" alt=\"...\">\n");
-      out.write("                    </div>\n");
+      out.write("                    </div>-->\n");
       out.write("                </div>\n");
       out.write("                <a class=\"carousel-control-prev\" href=\"#carouselExampleInterval\" role=\"button\" data-slide=\"prev\">\n");
       out.write("                    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n");
