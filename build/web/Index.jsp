@@ -4,8 +4,9 @@
     Author     : Sushil Gupta
 --%>
 
+<%@page import="com.portal.LearnDAO"%>
+<%@page import="com.portal.LearnPOJO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="navbar.jsp" %>
 <%@include file="bootstraplinks.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,10 +14,76 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
+        <style>.nav-img{
+                width:6vh;
+            }</style>
+        <!-- animation link -->
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="css/indexstyle.css">
     </head>
     <body onload="myLoader()">
+        <!--loader-->
         <div id="loading"></div>
+        <!--ed of loader-->
+
+        <!--navbar-->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-danger ">
+            <!-- Logo of our website -->
+            <a class="navbar-brand" href="Index.jsp"> <img class="nav-img" src="Logo/elearning.png" alt=""> E-learning</a>
+
+            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="Index.jsp#Home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <%
+                        String username = (String) session.getAttribute("session_name");
+                        if (username != null) {
+                    %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index.jsp#Courses">Courses</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index.jsp#">Take Quiz</a>
+                    </li>
+                    <% }%> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index.jsp#About us">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index.jsp#Contact us">Contact us</a>
+                    </li>          
+                </ul>
+                <ul class="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
+                    <%
+//                        String username = (String) session.getAttribute("session_name");
+                        if (username == null) {
+                    %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.jsp">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="registration.jsp">Register</a>
+                    </li>
+                    <% } else {
+                    %>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.jsp?id=${session_name}">Hello ${session_name}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout">Logout</a>
+                    </li>
+                    <% }%>
+                </ul>
+            </div>
+        </nav>
+        <!--End of navbar-->        
+
         <!--banner div-->
         <div class="container-fluid myhieght">
             <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
@@ -181,8 +248,8 @@
                                     <div class="card-title mr-auto ml-auto">
                                         <img src="Logo/ds-algo.jpeg" class="img-fluid" alt="">
                                     </div>
-                                    <div class="card-header">
-                                        <h3>Data Structure & Algorithm</h3>
+                                    <div class="card-header text-center">
+                                        <h3>DS& Algorithm</h3>
                                     </div>
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
@@ -234,6 +301,7 @@
             </div>
         </section>
         <!--End of  Courses div -->
+
         <!-- Join us div -->
         <section>
             <div class="container-fluid">
@@ -250,6 +318,7 @@
             </div>
         </section>
         <!-- End of Join us div -->
+
         <!-- About us div -->
         <section id="About us">
             <div class="container-fluid p-5 marketing">
@@ -287,6 +356,7 @@
             </div>
         </section>
         <!-- End of About us div -->
+
         <!-- Contact us div -->
         <section id="Contact us">
             <div class="container-fluid">
@@ -301,10 +371,10 @@
                             <p class="p-3 ">Send us a message</p>
                         </div>
                         <div class="body">
-                            <form action="" method="">
+                            <form action="contactusData.jsp" method="post" id="form">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="fname">Full Name*:</label>
+                                        <label>Full Name*:</label>
                                         <div class="form-group ">
                                             <input class="form-control" type="text" id="fname" name="fname" required autocomplete="off">
                                             <small id="funame"></small>
@@ -313,7 +383,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="email">Email*:</label>
+                                        <label>Email*:</label>
                                         <div class="form-group ">
                                             <input class="form-control" type="email" id="email" name="email" required autocomplete="off">
                                             <small id="email"></small>
@@ -332,7 +402,7 @@
                                 <div class="row justify-content-center">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <button type="submit" name="send" id="#register"class="btn btn-dark btn-block">Send</button>
+                                            <button type="submit" value="submit" class="btn btn-dark btn-block" onsubmit="alert('Sussfull');">Send</button>
                                         </div>   
                                     </div>
                                 </div>
@@ -344,20 +414,30 @@
         </section>
         <!-- End of contact us div -->
         <!-- Contact us div -->
+
         <section id="Footer">
             <div class="container-fluid bg-danger ">
                 <div class="footer p-3 text-center">
-                    <h6 >© 2020 e-learning Inc. All rights reserved.</h4>
+                    <h6 >© 2020 E-learning Inc. All rights reserved.</h4>
                 </div>
             </div>
         </section>
         <!-- End of contact us div -->
-
         <script type="text/javascript">
             var preloader = document.getElementById('loading');
             const myLoader = () => {
                 preloader.style.display = 'none';
             }
+        </script>
+        <script type="text/javascript">
+            const form = document.getElementById("form");
+            form.addEventListener("submit", (event) => {
+                swal({
+                    title: "Thankyou!",
+                    text: "Thankyou for your response!",
+                    icon: "success",
+                });
+            })
         </script>
     </body>
 </html>

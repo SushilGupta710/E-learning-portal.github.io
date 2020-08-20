@@ -15,21 +15,22 @@
     <link rel="stylesheet" href="css/loginstyle.css">
     <title>Login Form</title>
 </head>
-
 <body>
     <div class="d-flex justify-content-center align-items-center login-container">
-        <form class="login-form text-center" action="#" >
+        <form class="login-form text-center" action="login" method="post">
             <div class="col-md-12">
+                <h4 class="text-center text-danger">${message}</h4>
                 <h1 class="mb-4 font-weight-light text-uppercase">User Login</h1>
-                <form action="">
+                <!--<form action="login" method="post">-->
                 <div class="form-group">
-                    <input type="text" class="form-control rounded-pill form-control-lg" placeholder="Username">
+                    <input type="text" class="form-control rounded-pill form-control-lg" name="username" placeholder="Username">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control rounded-pill form-control-lg" placeholder="Password">
+                    <input type="password" class="form-control rounded-pill form-control-lg" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn mt-3 rounded-pill btn-lg btn-custom btn-block">LOG IN</button>
+                    <button type="submit" name="submit"class="btn mt-3 rounded-pill btn-lg btn-custom btn-block">LOG IN</button>
                 <p class="mt-3 font-weight-normal">Don't have an account? <a href="registration.jsp"><strong>Register Now</strong></a></p>
+                <p class="font-weight-normal">Admin login<a href="adminlog.jsp"><strong> Go to Login</strong></a></p>
             </div>
         </form>
     </div>

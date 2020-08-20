@@ -10,7 +10,7 @@ package com.portal;
  * @author Sushil Gupta
  */
 public class LearnPOJO {
-     private String name,username,email,contact,password,cpassword;
+     private String name,username,email,contact,password,cpassword,message;
 
     public String getName() {
         return name;
@@ -36,6 +36,11 @@ public class LearnPOJO {
         return cpassword;
     }
 
+    public String getMessage() {
+        return message;
+    }
+    
+//    set method
     public void setName(String name) {
         this.name = name;
     }
@@ -58,5 +63,9 @@ public class LearnPOJO {
 
     public void setCpassword(String cpassword) {
         this.cpassword = cpassword;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

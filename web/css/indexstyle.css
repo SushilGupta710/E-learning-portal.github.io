@@ -12,18 +12,19 @@
     background:#fff url("../Images/Spinner-1s-200px.gif") no-repeat center;
     z-index: 9;
 }
+
 .myhieght{
     margin:0% !important;padding: 0% !important;
     /* min-height: 333px; */
 }
-.banner-img-2{
+/*.banner-img-2{
     background-image: url("/Images/banner2-img.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* width: 650px; */
-    /* min-height: 653px; */
-}
+     width: 650px; 
+     min-height: 653px; 
+}*/
 
 .card{
     opacity: 0.9;
@@ -33,4 +34,7 @@
     background: #ca283f;
     background-color: rgb(202, 40, 63);
     min-height: 400px;
+}
+.nav-img{
+    width:6vh;
 }

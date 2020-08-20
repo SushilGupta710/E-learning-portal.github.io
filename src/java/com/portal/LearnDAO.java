@@ -43,11 +43,42 @@ public class LearnDAO {
         ps.setString(6, lp.getCpassword());
 
         int status = ps.executeUpdate();
-        
         return status;
-
     }
-
+    
+//        for contact us 
+    public static int Contactus(LearnPOJO lp) throws SQLException{
+        Connection c2 = LearnDAO.getConnection();
+        PreparedStatement ps=c2.prepareStatement("insert into contactus(fname,email,message) values(?,?,?)");
+        ps.setString(1, lp.getName());
+        ps.setString(2,lp.getEmail());
+        ps.setString(3, lp.getMessage());
+        
+        int status = ps.executeUpdate();
+        return status;
+    }
+    
+//    for login
+        public static LearnPOJO loginUser(String uname,String pass)throws SQLException{
+        LearnPOJO lp = new LearnPOJO();
+        try{
+            Connection c2=LearnDAO.getConnection();
+            PreparedStatement ps=c2.prepareStatement("select * from registration where runame=? and rpassword=?");
+            ps.setString(1, uname);
+            ps.setString(2, pass);
+            
+            ResultSet rs= ps.executeQuery();
+            while(rs.next()){
+                lp.setUsername(rs.getString(1));
+                lp.setCpassword(rs.getString(2));
+                lp.setName(rs.getString(3));
+            }
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return lp;
+    }
+        
 //    public static int Update(Emp_POJO e) {
 //        int status = 0;
 //        try {

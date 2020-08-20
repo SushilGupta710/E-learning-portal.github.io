@@ -30,12 +30,6 @@
                         <a class="nav-link" href="Index.jsp#Home">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Index.jsp#Courses">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Index.jsp#">Take Quiz</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="Index.jsp#About us">About us</a>
                     </li>
                     <li class="nav-item">

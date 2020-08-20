@@ -47,9 +47,10 @@ public class register extends HttpServlet {
 //            means id humesha 1 se start hota hai to hum lo greater then zero likhenge
             if (status > 0) {
 //                out.print("<div class='alert alert-success'> Record updated sucessfully </div>");
-                request.getRequestDispatcher("login.jsp").include(request, response);
+//                request.getRequestDispatcher("login.jsp").include(request, response);
+                response.sendRedirect("login.jsp");
             } else {
-                out.print("<div class='alert alert-success'>Record was not save</div>");
+                 out.print("<div class='alert alert-error'> Record not updated </div>");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
