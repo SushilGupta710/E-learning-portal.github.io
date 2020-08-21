@@ -238,7 +238,7 @@ public final class editprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>  \n");
       out.write("        <script type=\"text/javascript\">\n");
       out.write("            const visiblityToggle = document.querySelector(\".visibility\");\n");
-      out.write("            const input = document.querySelector(\".password input,.password1 input\");\n");
+      out.write("            const input = document.querySelector(\".password input\");\n");
       out.write("\n");
       out.write("            var password = true;\n");
       out.write("\n");
@@ -254,22 +254,23 @@ public final class editprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("        </script>\n");
       out.write("        <script type=\"text/javascript\">\n");
-      out.write("            const visiblityToggle = document.querySelector(\".visibility1\");\n");
-      out.write("            const input = document.querySelector(\".password1 input\");\n");
+      out.write("            const visiblityToggle1 = document.querySelector(\".visibility1\");\n");
+      out.write("            const input1 = document.querySelector(\".password1 input\");\n");
       out.write("\n");
       out.write("            var password = true;\n");
       out.write("\n");
-      out.write("            visiblityToggle.addEventListener('click', function ()\n");
+      out.write("            visiblityToggle1.addEventListener('click', function ()\n");
       out.write("            {\n");
       out.write("                if (password) {\n");
-      out.write("                    input.setAttribute('type', 'text');\n");
+      out.write("                    input1.setAttribute('type', 'text');\n");
       out.write("                } else {\n");
-      out.write("                    input.setAttribute('type', 'password');\n");
+      out.write("                    input1.setAttribute('type', 'password');\n");
       out.write("                }\n");
       out.write("                password = !password;\n");
       out.write("            });\n");
       out.write("\n");
       out.write("        </script>\n");
+      out.write("        \n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

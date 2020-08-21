@@ -83,7 +83,7 @@
         <div class="container-fluid mt-2">
             <div class="row">
                 <div class="col-md-4 mx-auto form-container ">
-                    <form method="update" action="post">
+                    <form method="post" action="">
                         <%
                             statement = conn.createStatement();
                             String uname = (String) session.getAttribute("session_name");
@@ -91,11 +91,16 @@
                             rs = statement.executeQuery(data);
                             while (rs.next()) {
                         %>
-                        <div class="row bg-danger">
+                        <div class="row bg-danger ">
                             <div class="col ">
                                 <header class="text-center p-2"><h2 class="text-white">Update Profile</h2></header>
                             </div>
                         </div>
+<!--                        <div class="row mt-3">
+                            <div class="col text-center">
+                                <h4 class="text-danger">${message}</h4>
+                            </div>
+                        </div>-->
                         <div class="row mt-3">
                             <div class="col">
                                 <div class="form-group">
@@ -104,7 +109,6 @@
                                 </div> 
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -187,6 +191,28 @@
             });
 
         </script>
-        
     </body>
 </html>
+<%
+    String Name = request.getParameter("ufname");
+    String Email = request.getParameter("uemail");
+    String Contact = request.getParameter("ucontact");
+    String Password = request.getParameter("upassword");
+    String Cpassword = request.getParameter("ucpassword");
+
+    if (Name != null && Email != null && Contact != null && Password != null && Cpassword != null) {
+        if (Cpassword.equals(Password)) {
+            String query = "update registration set rname=?,remail=?,rcontact=?,rpassword=?,rcpassword=? where runame='" + uname + "'";
+            preset = conn.prepareStatement(query);
+            preset.setString(1, Name);
+            preset.setString(2, Email);
+            preset.setString(3, Contact);
+            preset.setString(4, Password);
+            preset.setString(5, Cpassword);
+            preset.executeUpdate();
+            response.sendRedirect("profile.jsp");
+        } else {
+            out.print("<script>alert('password does not matched');</script>");
+        }
+    }
+%>

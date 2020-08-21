@@ -79,23 +79,6 @@ public class LearnDAO {
         return lp;
     }
         
-//    public static int Update(Emp_POJO e) {
-//        int status = 0;
-//        try {
-//            try (Connection c1 = Emp_DAO.getConnection()) {
-//                PreparedStatement ps = c1.prepareStatement("Update employee set e_name = ? ,e_age=? where e_id=? ");
-//                ps.setString(1, e.getName());
-//                ps.setString(2, e.getAge());
-//                ps.setInt(3, e.getId());
-//                status = ps.executeUpdate();
-//            }
-//
-//        } catch (SQLException ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        return status;
-//
-//    }
 //
 //    public static int delete(int id) {
 //        int status = 0;

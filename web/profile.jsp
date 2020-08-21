@@ -106,8 +106,8 @@
                                 <div class="col-md-7"><h5><%=rs.getString("rname")%></h5></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-5"><h4>Email:-</h4></div>
-                                <div class="col-md-7"><h5><%=rs.getString("remail")%></h5></div>
+                                <div class="col-md-4"><h4>Email:-</h4></div>
+                                <div class="col-md-8"><h5><%=rs.getString("remail")%></h5></div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-5"><h4>Contact:-</h4></div>
