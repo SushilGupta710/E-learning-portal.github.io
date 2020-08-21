@@ -78,6 +78,14 @@ body {
     top: 45px;
     visibility: hidden;
 }
+.form-group .visibility{
+    visibility: visible;
+    cursor: pointer;
+}
+.form-group .visibility1{
+    visibility: visible;
+    cursor: pointer;
+}
 
 .form-group.success i.fa-check-circle {
     color: #2ecc71;

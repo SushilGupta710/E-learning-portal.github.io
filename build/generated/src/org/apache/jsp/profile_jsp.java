@@ -57,33 +57,7 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-
-    String uname = (String) session.getAttribute("session_name");
-    String driver = "com.mysql.jdbc.Driver";
-    String connectionUrl = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
-    String database = "registration";
-    String userid = "root";
-    String password = "root";
-    try {
-        Class.forName(driver);
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-    }
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet resultSet = null;
-
-      out.write('\n');
-
-    try {
-        connection = DriverManager.getConnection(connectionUrl + database, userid, password);
-        statement = connection.createStatement();
-        String sql = "select * from registration where runame="+uname;
-        resultSet = statement.executeQuery(sql);
-        while (resultSet.next()) {
-
-      out.write('\n');
-      out.write('\n');
+      out.write("\n");
       out.write("\n");
       out.write("<!--bootstrap css CDN(Content Delivery Network) Link-->\n");
       out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\">\n");
@@ -99,6 +73,30 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!--font awesome5 js link-->\n");
       out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
       out.write("\n");
+      out.write("                        ");
+
+                            String uname = (String) session.getAttribute("session_name");
+                            String driver = "com.mysql.jdbc.Driver";
+                            String connectionUrl = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
+                            String database = "registration";
+                            String userid = "root";
+                            String password = "root";
+                            try {
+                                Class.forName(driver);
+                            } catch (ClassNotFoundException e) {
+                                e.printStackTrace();
+                            }
+                            Connection connection = null;
+                            Statement statement = null;
+                            ResultSet resultSet = null;
+
+                            try {
+                                connection = DriverManager.getConnection(connectionUrl + database, userid, password);
+                                statement = connection.createStatement();
+                                String sql = "select * from registration where runame=" + uname;
+                                resultSet = statement.executeQuery(sql);
+                                while (resultSet.next()) {
+                        
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html lang=\"en\">\n");
@@ -107,24 +105,10 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- Required meta tags -->\n");
       out.write("        <meta charset=\"utf-8\">\n");
       out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n");
-      out.write("        <style>.nav-img{\n");
-      out.write("                width:6vh;\n");
-      out.write("            }</style>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/profilestyle.css\">\n");
+      out.write("\n");
       out.write("    </head>\n");
       out.write("    <body>  \n");
-      out.write("        ");
-
-            session = request.getSession(false);
-
-            if (session.getAttribute("session_name") == null) {
-                out.print("<script>alert('Please login first')</script>");
-                response.sendRedirect("login.jsp");
-            } else {
-                String name = (String) session.getAttribute("session_name");
-//                out.print("Hello " + name + " Welcome to Profile");
-            }
-        
+      out.write("\n");
       out.write("\n");
       out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-danger \">\n");
       out.write("            <!-- Logo of our website -->\n");
@@ -165,6 +149,7 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
+      out.write("\n");
       out.write("        <div class=\"container-fluid mt-5\">\n");
       out.write("            <div class=\"row justify-content-center\">\n");
       out.write("                <div class=\"col-12  col-sm-6  col-md-3\">\n");
@@ -200,20 +185,19 @@ public final class profile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\">\n");
       out.write("                    </div>\n");
       out.write("                    <a href=\"editprofile.jsp\" class=\"btn btn-primary btn-block\">EDIT</a>\n");
-      out.write("                    ");
-
-                            }
-                            connection.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    
       out.write("\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>  \n");
       out.write("    </body>\n");
-      out.write("</html> ");
+      out.write("</html> \n");
+
+        }
+        connection.close();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

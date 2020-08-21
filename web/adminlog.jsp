@@ -15,7 +15,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- CSS -->
-        <link rel="stylesheet" href="/css/adminlogstyle.css">
+        <link rel="stylesheet" href="css/adminlogstyle.css">
     </head>
     <body>
         <div class="container">
@@ -37,9 +37,10 @@
                                     <label class="text-white">Username</label>
                                     <input class="form-control" type="text" name="uname">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group password">
                                     <label class="text-white">Password</label>
                                     <input class="form-control" type="password" name="pass">
+                                    <i class="fas fa-eye visibility"></i>
                                 </div>
                                 <button type="submit" class="btn btn-block bg-danger rounded">Login</button>
                             </form>
@@ -49,5 +50,20 @@
                 </div>
             </div>
         </div>
+    <script type="text/javascript">
+        const visibleToggle = document.querySelector(".visibility");
+        const input = document.querySelector(".password input");
+        
+        var password = true;
+        
+        visibleToggle.addEventListener('click',function(){
+            if(password){
+                input.setAttribute('type','text');
+            }else{
+                input.setAttribute('type','password');
+            }
+            password=!password;
+        });
+    </script>
     </body>
 </html>

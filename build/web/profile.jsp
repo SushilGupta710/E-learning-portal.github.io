@@ -1,54 +1,27 @@
 <%-- 
-    Document   : ]profile
-    Created on : 13 Aug, 2020, 3:59:40 PM
+    Document   : userprofile
+    Created on : 21 Aug, 2020, 11:53:50 AM
     Author     : Sushil Gupta
 --%>
 
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="bootstraplinks.jsp" %>
-
-<%
-    String uname = (String) session.getAttribute("session_name");
-    String driver = "com.mysql.jdbc.Driver";
-    String connectionUrl = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
-    String database = "registration";
-    String userid = "root";
-    String password = "root";
-    try {
-        Class.forName(driver);
-    } catch (ClassNotFoundException e) {
-        e.printStackTrace();
-    }
-    Connection connection = null;
-    Statement statement = null;
-    ResultSet resultSet = null;
-
-    try {
-        connection = DriverManager.getConnection(connectionUrl + database, userid, password);
-        statement = connection.createStatement();
-        String sql = "select * from registration where runame="+uname;
-        resultSet = statement.executeQuery(sql);
-        while (resultSet.next()) {
-%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <title>User profile</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>User Profile</title>
         <style>.nav-img{
                 width:6vh;
             }</style>
         <link rel="stylesheet" href="css/profilestyle.css">
     </head>
-    <body>  
+    <body>
         <%
             session = request.getSession(false);
 
@@ -60,6 +33,8 @@
 //                out.print("Hello " + name + " Welcome to Profile");
             }
         %>
+
+        <!--nav bar-->
         <nav class="navbar navbar-expand-sm navbar-dark bg-danger ">
             <!-- Logo of our website -->
             <a class="navbar-brand" href="Index.jsp"> <img class="nav-img" src="Logo/elearning.png" alt=""> E-learning</a>
@@ -97,40 +72,59 @@
                 </ul>
             </div>
         </nav>
-        <div class="container-fluid mt-5">
-            <div class="row justify-content-center">
-                <div class="col-12  col-sm-6  col-md-3">
-                    <h4 class="text-center font-weight-bold">USER PROFILE</h4>
-                    <div class="form-group">
-                        <label for="User Name">UserName</label>
-                        <input type="text" class="form-control" id="User Name" disabled value="<%=resultSet.getString("runame")%>">
-                    </div>
-                    <div class="form-group">
-                        <label for="full name">Full name</label>
-                        <input type="full name" class="form-control" id="full name" disabled value="<%=resultSet.getString("rname")%>">
-                    </div>
-                    <div class="form-group">
-                        <label for="Email Id1">Email Id</label> 
-                        <input type="email" class="form-control" id="Email" disabled value="<%=resultSet.getString("remail")%>">
-                    </div>
-                    <div class="form-group">
-                        <label for="mobile no.">Mobile No.</label>
-                        <input type="mobileno" class="form-control" id="mobileno." disabled value="<%=resultSet.getString("rcontact")%>">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" disabled value="<%=resultSet.getString("rpassword")%>">
-                    </div>
-                    <a href="editprofile.jsp" class="btn btn-primary btn-block">EDIT</a>
-                    <%
+        <!--end of navbar-->
+        <%
+            String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
+            Statement statement = null;
+            ResultSet rs = null;
+            PreparedStatement preset = null;
+            Connection conn = null;
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            conn = DriverManager.getConnection(host, "root", "root");
+        %>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card">
+                        <div class="card-header text-center bg-danger text-white">
+                            <h1>My profile</h1>
+                        </div>
+                        <%
+                            statement = conn.createStatement();
+                            String uname = (String) session.getAttribute("session_name");
+                            String data = "select * from registration where runame='" + uname + "'";
+                            rs = statement.executeQuery(data);
+                            while (rs.next()) {
+                        %>
+                        <div class="card-body">
+                            <div class="row mt-3">
+                                <div class="col-md-5"><h4>User name:-</h4></div>
+                                <div class="col-md-7"><h5><%=rs.getString("runame")%></h5></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-5"><h4>Full name:-</h4></div>
+                                <div class="col-md-7"><h5><%=rs.getString("rname")%></h5></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-5"><h4>Email:-</h4></div>
+                                <div class="col-md-7"><h5><%=rs.getString("remail")%></h5></div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-md-5"><h4>Contact:-</h4></div>
+                                <div class="col-md-7"><h5><%=rs.getString("rcontact")%></h5></div>
+                            </div>
+                            <div class="row mt-3 justify-content-center">
+                                <div class="col-md-6">
+                                    <a href="editprofile.jsp?uname=<%=rs.getString("runame")%>" class="btn btn-danger btn-block">EDIT</a>
+                                </div>
+                            </div>
+                        </div>
+                        <%
                             }
-                            connection.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    %>
+                        %>
+                    </div>
                 </div>
             </div>
-        </div>  
+        </div>
     </body>
-</html> 
+</html>

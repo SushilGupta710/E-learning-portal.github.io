@@ -3,6 +3,11 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
 
 public final class editprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -12,9 +17,8 @@ public final class editprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
+    _jspx_dependants = new java.util.ArrayList<String>(1);
     _jspx_dependants.add("/bootstraplinks.jsp");
-    _jspx_dependants.add("/navbar.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -47,20 +51,10 @@ public final class editprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
-      out.write('\n');
-      out.write('\n');
       out.write("\n");
-      out.write("<!--bootstrap css CDN(Content Delivery Network) Link-->\n");
-      out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\">\n");
       out.write("\n");
-      out.write("<!--bootstrap js CDN(Content Delivery Network) Link-->\n");
-      out.write("<script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>\n");
-      out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\" integrity=\"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN\" crossorigin=\"anonymous\"></script>\n");
-      out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\" integrity=\"sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV\" crossorigin=\"anonymous\"></script>\n");
       out.write("\n");
-      out.write("<!--fontawesome5 js link-->\n");
-      out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
-      out.write('\n');
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -73,18 +67,38 @@ public final class editprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\" integrity=\"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN\" crossorigin=\"anonymous\"></script>\n");
       out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\" integrity=\"sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV\" crossorigin=\"anonymous\"></script>\n");
       out.write("\n");
-      out.write("<!--fontawesome5 js link-->\n");
+      out.write("<!--sweet alert-2-->\n");
+      out.write("<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>\n");
+      out.write("\n");
+      out.write("<!--font awesome5 js link-->\n");
       out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
-      out.write("<html>\n");
+      out.write("<html lang=\"en\">\n");
       out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <meta charset=\"UTF-8\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("        <title>Update Profile</title>\n");
       out.write("        <style>.nav-img{\n");
       out.write("                width:6vh;\n");
       out.write("            }</style>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/editprofilestyle.css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        ");
+
+            session = request.getSession(false);
+
+            if (session.getAttribute("session_name") == null) {
+                out.print("<script>alert('Please login first')</script>");
+                response.sendRedirect("login.jsp");
+            } else {
+                String name = (String) session.getAttribute("session_name");
+//                out.print("Hello " + name + " Welcome to Profile");
+            }
+        
+      out.write("\n");
+      out.write("\n");
       out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-danger \">\n");
       out.write("            <!-- Logo of our website -->\n");
       out.write("            <a class=\"navbar-brand\" href=\"Index.jsp\"> <img class=\"nav-img\" src=\"Logo/elearning.png\" alt=\"\"> E-learning</a>\n");
@@ -114,55 +128,148 @@ public final class editprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </ul>\n");
       out.write("                <ul class=\"navbar-nav ml-auto mr-5 mt-2 mt-lg-0\">\n");
       out.write("                    <li class=\"nav-item\">\n");
-      out.write("                        <a class=\"nav-link\" href=\"login.jsp\">Login</a>\n");
+      out.write("                        <a class=\"nav-link\" href=\"profile.jsp\">Hello ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${session_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</a>\n");
       out.write("                    </li>\n");
       out.write("                    <li class=\"nav-item\">\n");
-      out.write("                        <a class=\"nav-link\" href=\"registration.jsp\">Register</a>\n");
+      out.write("                        <a class=\"nav-link\" href=\"logout\">Logout</a>\n");
       out.write("                    </li>\n");
       out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("        ");
+
+            String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
+            Statement statement = null;
+            ResultSet rs = null;
+            PreparedStatement preset = null;
+            Connection conn = null;
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            conn = DriverManager.getConnection(host, "root", "root");
+        
       out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html lang=\"en\">\n");
-      out.write("    <head>\n");
-      out.write("        <meta charset=\"UTF-8\">\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
-      out.write("        <title>Edit Profile</title>\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/editprofilestyle.css\">\n");
-      out.write("    </head>\n");
-      out.write("    <body>\n");
-      out.write("        <div class=\"container-fluid\">\n");
-      out.write("            <div class=\"row justify-content-center\">\n");
-      out.write("                <div class=\"col-12  col-sm-6  col-md-3\">\n");
+      out.write("        <div class=\"container-fluid mt-2\">\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                <div class=\"col-md-4 mx-auto form-container \">\n");
+      out.write("                    <form method=\"update\" action=\"post\">\n");
+      out.write("                        ");
+
+                            statement = conn.createStatement();
+                            String uname = (String) session.getAttribute("session_name");
+                            String data = "select * from registration where runame='" + uname + "'";
+                            rs = statement.executeQuery(data);
+                            while (rs.next()) {
+                        
       out.write("\n");
-      out.write("                    <form class=\"form-container\">\n");
-      out.write("                        <h4 class=\"text-center font-weight-bold\">UPDATE PROFILE</h4>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"full name\">FullName</label>\n");
-      out.write("                            <input type=\"full name\" class=\"form-control\" id=\"full name\">\n");
+      out.write("                        <div class=\"row bg-danger\">\n");
+      out.write("                            <div class=\"col \">\n");
+      out.write("                                <header class=\"text-center p-2\"><h2 class=\"text-white\">Update Profile</h2></header>\n");
+      out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"Email Id1\">Email Id</label> \n");
-      out.write("                            <input type=\"email\" class=\"form-control\" id=\"Email\" aria-describedby=\"emailHelp\" >\n");
+      out.write("                        <div class=\"row mt-3\">\n");
+      out.write("                            <div class=\"col\">\n");
+      out.write("                                <div class=\"form-group\">\n");
+      out.write("                                    <label class=\"font-weight-bold\">Full name</label>\n");
+      out.write("                                    <input type=\"text\" class=\"form-control\"  name=\"ufname\" required=\"true\" value='");
+      out.print(rs.getString("rname"));
+      out.write("'>\n");
+      out.write("                                </div> \n");
+      out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"mobile no.\">Mobile No.</label>\n");
-      out.write("                            <input type=\"mobileno\" class=\"form-control\" id=\"mobileno.\">\n");
+      out.write("\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <div class=\"col\">\n");
+      out.write("                                <div class=\"form-group\">\n");
+      out.write("                                    <label class=\"font-weight-bold\">Email Id</label> \n");
+      out.write("                                    <input type=\"email\" class=\"form-control\" id=\"Email\" name=\"uemail\" required=\"true\" value='");
+      out.print(rs.getString("remail"));
+      out.write("'>\n");
+      out.write("                                </div>  \n");
+      out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("                        <div class=\"form-group\">\n");
-      out.write("                            <label for=\"exampleInputPassword1\">Password</label>\n");
-      out.write("                            <input type=\"password\" class=\"form-control\" id=\"exampleInputPassword1\">\n");
+      out.write("\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <div class=\"col\">\n");
+      out.write("                                <div class=\"form-group\">\n");
+      out.write("                                    <label class=\"font-weight-bold\">Mobile No.</label>\n");
+      out.write("                                    <input type=\"number\" class=\"form-control\" name=\"ucontact\" required=\"true\" value='");
+      out.print(rs.getString("rcontact"));
+      out.write("'>\n");
+      out.write("                                </div>  \n");
+      out.write("                            </div>\n");
       out.write("                        </div>\n");
-      out.write("                        <button type=\"submit\" class=\"btn btn-primary btn-block \">UPDATE</button>\n");
+      out.write("\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <div class=\"col\">\n");
+      out.write("                                <div class=\"form-group password\">\n");
+      out.write("                                    <label class=\"font-weight-bold\">Password</label>\n");
+      out.write("                                    <input type=\"password\" class=\"form-control\" name=\"upassword\" required=\"true\" value='");
+      out.print(rs.getString("rpassword"));
+      out.write("'>\n");
+      out.write("                                    <i class='fas fa-eye visibility'></i>\n");
+      out.write("                                </div>  \n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"row\">\n");
+      out.write("                            <div class=\"col\">\n");
+      out.write("                                <div class=\"form-group password1\">\n");
+      out.write("                                    <label class=\"font-weight-bold\">Conform Password</label>\n");
+      out.write("                                    <input type=\"password\" class=\"form-control\"  name=\"ucpassword\" required=\"true\" value='");
+      out.print(rs.getString("rcpassword"));
+      out.write("'>\n");
+      out.write("                                    <i class='fas fa-eye visibility1'></i>\n");
+      out.write("                                </div>  \n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"row justify-content-center \">\n");
+      out.write("                            <div class=\"col\">\n");
+      out.write("                                <button type=\"submit\" class=\"btn btn-danger btn-block\">UPDATE</button>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                        ");
+
+                            }
+                        
+      out.write("\n");
       out.write("                    </form>\n");
       out.write("                </div>\n");
-      out.write("\n");
       out.write("            </div>\n");
-      out.write("\n");
       out.write("        </div>  \n");
+      out.write("        <script type=\"text/javascript\">\n");
+      out.write("            const visiblityToggle = document.querySelector(\".visibility\");\n");
+      out.write("            const input = document.querySelector(\".password input,.password1 input\");\n");
+      out.write("\n");
+      out.write("            var password = true;\n");
+      out.write("\n");
+      out.write("            visiblityToggle.addEventListener('click', function ()\n");
+      out.write("            {\n");
+      out.write("                if (password) {\n");
+      out.write("                    input.setAttribute('type', 'text');\n");
+      out.write("                } else {\n");
+      out.write("                    input.setAttribute('type', 'password');\n");
+      out.write("                }\n");
+      out.write("                password = !password;\n");
+      out.write("            });\n");
+      out.write("\n");
+      out.write("        </script>\n");
+      out.write("        <script type=\"text/javascript\">\n");
+      out.write("            const visiblityToggle = document.querySelector(\".visibility1\");\n");
+      out.write("            const input = document.querySelector(\".password1 input\");\n");
+      out.write("\n");
+      out.write("            var password = true;\n");
+      out.write("\n");
+      out.write("            visiblityToggle.addEventListener('click', function ()\n");
+      out.write("            {\n");
+      out.write("                if (password) {\n");
+      out.write("                    input.setAttribute('type', 'text');\n");
+      out.write("                } else {\n");
+      out.write("                    input.setAttribute('type', 'password');\n");
+      out.write("                }\n");
+      out.write("                password = !password;\n");
+      out.write("            });\n");
+      out.write("\n");
+      out.write("        </script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

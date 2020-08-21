@@ -25,3 +25,13 @@ button {
 button:hover {
     opacity: 0.8;
 }
+.form-group{
+    position: relative;
+}
+.form-group i{
+    position: absolute;
+    top:43;
+    right:15;
+    cursor: pointer;
+    /*color: red;*/
+}

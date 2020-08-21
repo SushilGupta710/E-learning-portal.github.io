@@ -20,6 +20,10 @@
         <servlet-name>adminlogin</servlet-name>
         <servlet-class>com.portal.adminlogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Userprofile</servlet-name>
+        <servlet-class>com.portal.Userprofile</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>adminlogin</servlet-name>
         <url-pattern>/adminlogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Userprofile</servlet-name>
+        <url-pattern>/Userprofile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

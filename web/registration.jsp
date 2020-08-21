@@ -74,19 +74,21 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label>Password</label>
-                                        <div class="form-group">
+                                        <div class="form-group password">
                                             <input type="password" class="form-control" name="password" id="password" placeholder="Enter a password" required/>
                                             <i class="far fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
+                                            <i class="fas fa-eye visibility"></i>
                                             <small>hello</small>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label>Confirm Password</label>
-                                        <div class="form-group">
+                                        <div class="form-group password1">
                                             <input type="password" class="form-control" name="cpassword" id="cpassword" placeholder="Confirm your password" required/>
                                             <i class="far fa-check-circle"></i>
                                             <i class="fas fa-exclamation-circle"></i>
+                                            <i class="fas fa-eye visibility1"></i>
                                             <small>hello</small>
                                         </div>
                                     </div>
@@ -243,6 +245,34 @@
             const myLoader = () => {
                 preloader.style.display = 'none';
             }
+            
+//            for password show and hide
+        const visibleToggle=document.querySelector(".visibility");
+        const input=document.querySelector(".password input");
+        var pass=true;
+        visibleToggle.addEventListener('click',function(){
+            if(pass){
+                input.setAttribute('type','text');
+            }else{
+                input.setAttribute('type','password');
+            }
+            pass=!pass;
+        });
+        </script>
+        <script type="text/javascript">
+            
+//        2nd toggle password
+        const visibleToggle1=document.querySelector(".visibility1");
+        const input1=document.querySelector(".password1 input");
+        var pass1=true;
+        visibleToggle1.addEventListener('click',function(){
+            if(pass1){
+                input1.setAttribute('type','text');
+            }else{
+                input1.setAttribute('type','password');
+            }
+            pass1=!pass1;
+        });
         </script>
     </body>
 </html>

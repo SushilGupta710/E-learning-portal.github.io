@@ -3,8 +3,13 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.sql.PreparedStatement;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
 
-public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class userprofile_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -12,9 +17,8 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
+    _jspx_dependants = new java.util.ArrayList<String>(1);
     _jspx_dependants.add("/bootstraplinks.jsp");
-    _jspx_dependants.add("/navbar.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -51,20 +55,6 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("<!--bootstrap css CDN(Content Delivery Network) Link-->\n");
-      out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\">\n");
-      out.write("\n");
-      out.write("<!--bootstrap js CDN(Content Delivery Network) Link-->\n");
-      out.write("<script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>\n");
-      out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\" integrity=\"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN\" crossorigin=\"anonymous\"></script>\n");
-      out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\" integrity=\"sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV\" crossorigin=\"anonymous\"></script>\n");
-      out.write("\n");
-      out.write("<!--sweet alert-2-->\n");
-      out.write("<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>\n");
-      out.write("\n");
-      out.write("<!--font awesome5 js link-->\n");
-      out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
-      out.write('\n');
       out.write("\n");
       out.write("\n");
       out.write("\n");
@@ -82,16 +72,34 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<!--font awesome5 js link-->\n");
       out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
+      out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>User Profile</title>\n");
       out.write("        <style>.nav-img{\n");
       out.write("                width:6vh;\n");
       out.write("            }</style>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/profilestyle.css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        ");
+
+            session = request.getSession(false);
+
+            if (session.getAttribute("session_name") == null) {
+                out.print("<script>alert('Please login first')</script>");
+                response.sendRedirect("login.jsp");
+            } else {
+                String name = (String) session.getAttribute("session_name");
+//                out.print("Hello " + name + " Welcome to Profile");
+            }
+        
+      out.write("\n");
+      out.write("\n");
+      out.write("        <!--nav bar-->\n");
       out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-danger \">\n");
       out.write("            <!-- Logo of our website -->\n");
       out.write("            <a class=\"navbar-brand\" href=\"Index.jsp\"> <img class=\"nav-img\" src=\"Logo/elearning.png\" alt=\"\"> E-learning</a>\n");
@@ -107,6 +115,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <a class=\"nav-link\" href=\"Index.jsp#Home\">Home <span class=\"sr-only\">(current)</span></a>\n");
       out.write("                    </li>\n");
       out.write("                    <li class=\"nav-item\">\n");
+      out.write("                        <a class=\"nav-link\" href=\"Index.jsp#Courses\">Courses</a>\n");
+      out.write("                    </li>\n");
+      out.write("                    <li class=\"nav-item\">\n");
+      out.write("                        <a class=\"nav-link\" href=\"Index.jsp#\">Take Quiz</a>\n");
+      out.write("                    </li>\n");
+      out.write("                    <li class=\"nav-item\">\n");
       out.write("                        <a class=\"nav-link\" href=\"Index.jsp#About us\">About us</a>\n");
       out.write("                    </li>\n");
       out.write("                    <li class=\"nav-item\">\n");
@@ -115,50 +129,87 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </ul>\n");
       out.write("                <ul class=\"navbar-nav ml-auto mr-5 mt-2 mt-lg-0\">\n");
       out.write("                    <li class=\"nav-item\">\n");
-      out.write("                        <a class=\"nav-link\" href=\"login.jsp\">Login</a>\n");
+      out.write("                        <a class=\"nav-link\" href=\"profile.jsp\">Hello ");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${session_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("</a>\n");
       out.write("                    </li>\n");
       out.write("                    <li class=\"nav-item\">\n");
-      out.write("                        <a class=\"nav-link\" href=\"registration.jsp\">Register</a>\n");
+      out.write("                        <a class=\"nav-link\" href=\"logout\">Logout</a>\n");
       out.write("                    </li>\n");
       out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
-      out.write("    </body>\n");
-      out.write("</html>\n");
+      out.write("        <!--end of navbar-->\n");
+      out.write("        ");
+
+            String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
+            Statement statement = null;
+            ResultSet rs = null;
+            PreparedStatement preset = null;
+            Connection conn = null;
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            conn = DriverManager.getConnection(host, "root", "root");
+        
       out.write("\n");
-      out.write("<!DOCTYPE html>\n");
-      out.write("<html lang=\"en\">\n");
-      out.write("<head>\n");
-      out.write("    <meta charset=\"utf-8\">\n");
-      out.write("    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n");
-      out.write("    <link rel=\"stylesheet\" href=\"css/loginstyle.css\">\n");
-      out.write("    <title>Login Form</title>\n");
-      out.write("</head>\n");
-      out.write("<body>\n");
-      out.write("    <div class=\"d-flex justify-content-center align-items-center login-container\">\n");
-      out.write("        <form class=\"login-form text-center\" action=\"login\" method=\"post\">\n");
-      out.write("            <div class=\"col-md-12\">\n");
-      out.write("                <h4 class=\"text-center text-danger\">");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${message}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("</h4>\n");
-      out.write("                <h1 class=\"mb-4 font-weight-light text-uppercase\">User Login</h1>\n");
-      out.write("                <!--<form action=\"login\" method=\"post\">-->\n");
-      out.write("                <div class=\"form-group\">\n");
-      out.write("                    <input type=\"text\" class=\"form-control rounded-pill form-control-lg\" name=\"username\" placeholder=\"Username\">\n");
+      out.write("        <div class=\"container mt-5\">\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                <div class=\"col-md-6 mx-auto\">\n");
+      out.write("                    <div class=\"card\">\n");
+      out.write("                        <div class=\"card-header text-center bg-danger text-white\">\n");
+      out.write("                            <h1>My profile</h1>\n");
+      out.write("                        </div>\n");
+      out.write("                        ");
+
+                            statement = conn.createStatement();
+                            String uname = (String) session.getAttribute("session_name");
+                            String data = "select * from registration where runame='" + uname + "'";
+                            rs = statement.executeQuery(data);
+                            while (rs.next()) {
+                        
+      out.write("\n");
+      out.write("                        <div class=\"card-body\">\n");
+      out.write("                            <div class=\"row mt-3\">\n");
+      out.write("                                <div class=\"col-md-6\"><h4>User name:-</h4></div>\n");
+      out.write("                                <div class=\"col-md-6\"><h5>");
+      out.print(rs.getString("runame"));
+      out.write("</h5></div>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"row mt-3\">\n");
+      out.write("                                <div class=\"col-md-6\"><h4>Full name:-</h4></div>\n");
+      out.write("                                <div class=\"col-md-6\"><h5>");
+      out.print(rs.getString("rname"));
+      out.write("</h5></div>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"row mt-3\">\n");
+      out.write("                                <div class=\"col-md-6\"><h4>Email:-</h4></div>\n");
+      out.write("                                <div class=\"col-md-6\"><h5>");
+      out.print(rs.getString("remail"));
+      out.write("</h5></div>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"row mt-3\">\n");
+      out.write("                                <div class=\"col-md-6\"><h4>Contact:-</h4></div>\n");
+      out.write("                                <div class=\"col-md-6\"><h5>");
+      out.print(rs.getString("rcontact"));
+      out.write("</h5></div>\n");
+      out.write("                            </div>\n");
+      out.write("                            <div class=\"row mt-3 justify-content-center\">\n");
+      out.write("                                <div class=\"col-md-6\">\n");
+      out.write("                                    <a href=\"editprofile.jsp\" class=\"btn btn-danger btn-block\">EDIT</a>\n");
+      out.write("                                </div>\n");
+      out.write("                            </div>\n");
+      out.write("                        </div>\n");
+      out.write("                        ");
+
+                            }
+                        
+      out.write("\n");
+      out.write("                    </div>\n");
       out.write("                </div>\n");
-      out.write("                <div class=\"form-group visible\">\n");
-      out.write("                    <input type=\"password\" class=\"form-control rounded-pill form-control-lg\" name=\"password\" placeholder=\"Password\">\n");
-      out.write("                    <i class=\"fas fa-eye\"></i>\n");
-      out.write("                </div>\n");
-      out.write("                    <button type=\"submit\" name=\"submit\"class=\"btn mt-3 rounded-pill btn-lg btn-custom btn-block\">LOG IN</button>\n");
-      out.write("                <p class=\"mt-3 font-weight-normal\">Don't have an account? <a href=\"registration.jsp\"><strong>Register Now</strong></a></p>\n");
-      out.write("                <p class=\"font-weight-normal\">Admin login<a href=\"adminlog.jsp\"><strong> Go to Login</strong></a></p>\n");
       out.write("            </div>\n");
-      out.write("        </form>\n");
-      out.write("    </div>\n");
-      out.write("</body>\n");
+      out.write("        </div>\n");
       out.write("\n");
-      out.write("</html>\n");
+      out.write("    </body>\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

@@ -59,3 +59,13 @@ body{
 .btn-custom:focus{
     box-shadow: 0 0 0 0.2rem rgba(114,61,190,.25);
 }
+.form-group{
+    position: relative;
+}
+.form-group i{
+    position: absolute;
+    top:15;
+    right:20;
+    color:black;
+    cursor:pointer;
+}
