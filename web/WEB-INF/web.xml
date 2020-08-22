@@ -5,10 +5,6 @@
         <servlet-class>com.portal.register</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>NewServlet</servlet-name>
-        <servlet-class>com.portal.NewServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>login</servlet-name>
         <servlet-class>com.portal.login</servlet-class>
     </servlet>
@@ -24,13 +20,13 @@
         <servlet-name>Userprofile</servlet-name>
         <servlet-class>com.portal.Userprofile</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addcourse</servlet-name>
+        <servlet-class>com.portal.addcourse</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NewServlet</servlet-name>
-        <url-pattern>/NewServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>login</servlet-name>
@@ -47,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>Userprofile</servlet-name>
         <url-pattern>/Userprofile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addcourse</servlet-name>
+        <url-pattern>/addcourse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

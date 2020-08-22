@@ -73,6 +73,7 @@
             </div>
         </nav>
         <!--end of navbar-->
+        
         <%
             String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
             Statement statement = null;

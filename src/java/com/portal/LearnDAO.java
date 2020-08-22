@@ -79,23 +79,23 @@ public class LearnDAO {
         return lp;
     }
         
-//
-//    public static int delete(int id) {
-//        int status = 0;
-//
-//        try {
-//            try (Connection con = Emp_DAO.getConnection()) {
-//                PreparedStatement ps = con.prepareStatement("delete from employee where e_id=?");
-//                ps.setInt(1, id);
-//
-//                status = ps.executeUpdate();
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return status;
-//    }
+
+    public static int delete(String uname) {
+        int status = 0;
+
+        try {
+            try (Connection con = LearnDAO.getConnection()) {
+                PreparedStatement ps = con.prepareStatement("delete from registration where runame=?");
+                ps.setString(1, uname);
+
+                status = ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
 //
 //    public static Emp_POJO getEmpById(int id) throws SQLException {
 //        Emp_POJO e = new Emp_POJO();

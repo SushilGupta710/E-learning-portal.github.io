@@ -1,88 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card">
-                    <div class="card-header text-center bg-danger text-white">
-                        <h1>My profile</h1>
-                    </div>
-
-                    out.print(<div class='card-body'>");
-                        out.print("<div class='row mt-3'>");
-                            out.print("<div class='col-md-6'><h4>User name:-</h4></div>");
-                            out.print("<div class='col-md-6'></div>");
-                        out.print("</div>");
-                        out.print("<div class='row mt-3'>");
-                            out.print("<div class='col-md-6'><h4>Full name:-</h4></div>");
-                            out.print("<div class='col-md-6'></div>");
-                        out.print("</div>");
-                        out.print("<div class='row mt-3'>");
-                            out.print("<div class='col-md-6'><h4>Email:-</h4></div>");
-                            out.print("<div class='col-md-6'></div>");
-                        out.print("</div>");
-                        out.print("<div class='row mt-3'>");
-                            out.print("<div class='col-md-6'><h4>Contact:-</h4></div>");
-                            out.print("<div class='col-md-6'></div>");
-                        out.print("</div>");
-                        out.print("<div class='row mt-3 justify-content-center'>");
-                            out.print("<div class='col-md-6'>");
-                                out.print("<a href='editprofile.jsp' class='btn btn-danger btn-block'>EDIT</a>");
-                            out.print("</div>");
-                        out.print("</div>");
-                    out.print("</div>");
-
-                </div>
+  </head>
+  <body>
+      <!-- course panel -->
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+                <h2>Courses</h2>
             </div>
-        </div>
-    </div>
-
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <div class="card">
-                    <div class="card-header text-center bg-danger text-white">
-                        <h1>My profile</h1>
-                    </div>
-                    
-                    <div class="card-body">
-                        <div class="row mt-3">
-                            <div class="col-md-6"><h4>User name:-</h4></div>
-                            <div class="col-md-6"><h5></h5></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><h4>Full name:-</h4></div>
-                            <div class="col-md-6"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><h4>Email:-</h4></div>
-                            <div class="col-md-6"></div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-6"><h4>Contact:-</h4></div>
-                            <div class="col-md-6"></div>
-                        </div>
-                        <div class="row mt-3 justify-content-center">
-                            <div class="col-md-6">
-                                <a href="editprofile.jsp" class="btn btn-danger btn-block">EDIT</a>
+            <div class="card-body">
+                <form action="" method="POST">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Course Category:</label>
+                                <select class="form-control" name="coursecat">
+                                    <option selected>Select a course</option>
+                                    <option value="html/css">Html and CSS</option>
+                                    <option value="js">JavaScript</option>
+                                    <option value="prog">Programming</option>
+                                    <option value="server">Server-Side</option>
+                                    <option value="dsalgo">DS& Algorithm</option>
+                                    <option value="ai">Artifical inteligence</option>
+                                    <option value="lwp">Learn with Projects</option>
+                                    <option value="preint">Prepare for interview</option>
+                                  </select>
                             </div>
                         </div>
                     </div>
-                    
-                </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Course Url:</label>
+                                <input class="form-control" type="text" name="courseurl" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Course Author:</label>
+                                <input class="form-control" type="text" name="courseauth" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Course Description:</label>
+                                <input class="form-control" type="text-area" name="coursedesc" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Image:</label>
+                                <input class="form-control" type="file" name="courseimg" >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col">
+                            <button class="btn btn-danger">Add</button>
+                        </div>
+                    </div>
+                </form>
             </div>
+          </div>
         </div>
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</body>
+  </body>
 </html>

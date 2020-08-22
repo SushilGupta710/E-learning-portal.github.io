@@ -82,7 +82,7 @@
                                     <h1>Users</h1>
                                 </header>
 
-                                <a href="" class="btn cust-btn">Users Panel</a>
+                                <a href="Userpanel.jsp" class="btn cust-btn">Users Panel</a>
                             </div>
                         </div>
                     </li>
@@ -94,7 +94,7 @@
                                 <header class="text-center">
                                     <h1>Courses</h1>
                                 </header>
-                                <a href="" class="btn cust-btn">Courses Panel</a>
+                                <a href="Coursepanel.jsp" class="btn cust-btn">Courses Panel</a>
                             </div>
                         </div>
                     </li>
@@ -106,11 +106,10 @@
                                 <header class="text-center">
                                     <h1>Quiz</h1>
                                 </header>
-                                <a href="" class="btn cust-btn">Quiz Panel</a>
+                                <a href="Quizpanel.jsp" class="btn cust-btn">Quiz Panel</a>
                             </div>
                         </div>
                     </li>
-
                 </ul>
             </div><!-- /wrapper -->
         </div><!-- /container -->

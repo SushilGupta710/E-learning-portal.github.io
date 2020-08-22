@@ -96,11 +96,6 @@
                                 <header class="text-center p-2"><h2 class="text-white">Update Profile</h2></header>
                             </div>
                         </div>
-<!--                        <div class="row mt-3">
-                            <div class="col text-center">
-                                <h4 class="text-danger">${message}</h4>
-                            </div>
-                        </div>-->
                         <div class="row mt-3">
                             <div class="col">
                                 <div class="form-group">

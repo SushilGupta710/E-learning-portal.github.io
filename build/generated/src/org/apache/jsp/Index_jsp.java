@@ -53,7 +53,6 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write('\n');
       out.write("\n");
       out.write("<!--bootstrap css CDN(Content Delivery Network) Link-->\n");
       out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\">\n");
@@ -63,7 +62,10 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\" integrity=\"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN\" crossorigin=\"anonymous\"></script>\n");
       out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\" integrity=\"sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV\" crossorigin=\"anonymous\"></script>\n");
       out.write("\n");
-      out.write("<!--fontawesome5 js link-->\n");
+      out.write("<!--sweet alert-2-->\n");
+      out.write("<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>\n");
+      out.write("\n");
+      out.write("<!--font awesome5 js link-->\n");
       out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
@@ -139,7 +141,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
                     
       out.write("\n");
       out.write("                    <li class=\"nav-item\">\n");
-      out.write("                        <a class=\"nav-link\" href=\"profile.jsp\">Hello ");
+      out.write("                        <a class=\"nav-link\" href=\"profile.jsp?id=");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${session_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("\">Hello ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${session_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("</a>\n");
       out.write("                    </li>\n");
@@ -181,8 +185,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!--End of banner div-->\n");
       out.write("\n");
       out.write("        <!-- E-larning portal div -->\n");
-      out.write("        <section id=\"Home\" data-aos=\"fade-out\" data-aos-offset=\"100\" data-aos-once=\"true\" data-aos-duration=\"1000\"\n");
-      out.write("                 data-aos-easing=\"ease-in-out\">\n");
+      out.write("        <section id=\"Home\">\n");
       out.write("            <div class=\"container-fluid banner-img-2 p-5\"> \n");
       out.write("                <div class=\"row mb-4\">\n");
       out.write("                    <div class=\"col text-center\">\n");
@@ -252,8 +255,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!--End of  E-larning portal div -->\n");
       out.write("\n");
       out.write("        <!-- Courses div -->\n");
-      out.write("        <section id=\"Courses\" data-aos=\"zoom-in-up\" data-aos-offset=\"120\" data-aos-once=\"true\" data-aos-duration=\"1000\"\n");
-      out.write("                 data-aos-easing=\"ease-in-out\">\n");
+      out.write("        <section id=\"Courses\">\n");
       out.write("            <div class=\"container-fluid \">\n");
       out.write("                <div class=\"row mb-4\">\n");
       out.write("                    <div class=\"col text-center\">\n");
@@ -375,8 +377,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!--End of  Courses div -->\n");
       out.write("\n");
       out.write("        <!-- Join us div -->\n");
-      out.write("        <section data-aos=\"zoom-in-left\" data-aos-offset=\"120\" data-aos-once=\"true\" data-aos-duration=\"1000\"\n");
-      out.write("                 data-aos-easing=\"ease-in-out\">\n");
+      out.write("        <section>\n");
       out.write("            <div class=\"container-fluid\">\n");
       out.write("                <div class=\"row join-bg\">\n");
       out.write("                    <div class=\"col-md-6 text-center mt-auto mb-auto\">\n");
@@ -393,8 +394,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- End of Join us div -->\n");
       out.write("\n");
       out.write("        <!-- About us div -->\n");
-      out.write("        <section id=\"About us\" data-aos=\"zoom-in-right\" data-aos-offset=\"120\" data-aos-once=\"false\" data-aos-duration=\"1000\"\n");
-      out.write("                 data-aos-easing=\"ease-in-out\">\n");
+      out.write("        <section id=\"About us\">\n");
       out.write("            <div class=\"container-fluid p-5 marketing\">\n");
       out.write("                <h1 class=\"text-center\">About us</h1>\n");
       out.write("                <br>\n");
@@ -432,8 +432,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!-- End of About us div -->\n");
       out.write("\n");
       out.write("        <!-- Contact us div -->\n");
-      out.write("        <section id=\"Contact us\" data-aos=\"zoom-in-down\" data-aos-offset=\"120\" data-aos-once=\"true\" data-aos-duration=\"1000\"\n");
-      out.write("                 data-aos-easing=\"ease-in-out\">\n");
+      out.write("        <section id=\"Contact us\">\n");
       out.write("            <div class=\"container-fluid\">\n");
       out.write("                <h1 class=\"text-center\">Contact us</h1>\n");
       out.write("                <br>\n");
@@ -445,31 +444,11 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"header bg-danger text-center text-white\">\n");
       out.write("                            <p class=\"p-3 \">Send us a message</p>\n");
       out.write("                        </div>\n");
-      out.write("                        ");
- 
-                            String name=request.getParameter("fname");
-                            String email=request.getParameter("email");
-                            String mesg=request.getParameter("mesg");
-                            
-                            LearnPOJO lp=new LearnPOJO();
-                            lp.setName(name);
-                            lp.setEmail(email);
-                            lp.setMessage(mesg);
-                            
-                            int status = LearnDAO.Contactus(lp);
-                            System.out.print(status);
-                            if(status > 0){
-                                request.getRequestDispatcher("login.jsp").include(request, response);
-                            }else{
-                                System.out.print(status);
-                            }
-                        
-      out.write("\n");
       out.write("                        <div class=\"body\">\n");
-      out.write("                            <form action=\"\" method=\"post\">\n");
+      out.write("                            <form action=\"contactusData.jsp\" method=\"post\" id=\"form\">\n");
       out.write("                                <div class=\"row\">\n");
       out.write("                                    <div class=\"col-md-12\">\n");
-      out.write("                                        <label for=\"fname\">Full Name*:</label>\n");
+      out.write("                                        <label>Full Name*:</label>\n");
       out.write("                                        <div class=\"form-group \">\n");
       out.write("                                            <input class=\"form-control\" type=\"text\" id=\"fname\" name=\"fname\" required autocomplete=\"off\">\n");
       out.write("                                            <small id=\"funame\"></small>\n");
@@ -478,7 +457,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                </div>\n");
       out.write("                                <div class=\"row\">\n");
       out.write("                                    <div class=\"col-md-12\">\n");
-      out.write("                                        <label for=\"email\">Email*:</label>\n");
+      out.write("                                        <label>Email*:</label>\n");
       out.write("                                        <div class=\"form-group \">\n");
       out.write("                                            <input class=\"form-control\" type=\"email\" id=\"email\" name=\"email\" required autocomplete=\"off\">\n");
       out.write("                                            <small id=\"email\"></small>\n");
@@ -497,7 +476,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <div class=\"row justify-content-center\">\n");
       out.write("                                    <div class=\"col-md-6\">\n");
       out.write("                                        <div class=\"form-group\">\n");
-      out.write("                                            <button type=\"submit\" name=\"send\" id=\"#register\"class=\"btn btn-dark btn-block\">Send</button>\n");
+      out.write("                                            <button type=\"submit\" value=\"submit\" class=\"btn btn-dark btn-block\" onsubmit=\"alert('Sussfull');\">Send</button>\n");
       out.write("                                        </div>   \n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
@@ -513,18 +492,26 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <section id=\"Footer\">\n");
       out.write("            <div class=\"container-fluid bg-danger \">\n");
       out.write("                <div class=\"footer p-3 text-center\">\n");
-      out.write("                    <h6 >© 2020 e-learning Inc. All rights reserved.</h4>\n");
+      out.write("                    <h6 >© 2020 E-learning Inc. All rights reserved.</h4>\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </section>\n");
       out.write("        <!-- End of contact us div -->\n");
-      out.write("        <script src=\"https://unpkg.com/aos@next/dist/aos.js\"></script>\n");
       out.write("        <script type=\"text/javascript\">\n");
-      out.write("        AOS.init();\n");
-      out.write("        var preloader = document.getElementById('loading');\n");
-      out.write("        const myLoader = () => {\n");
-      out.write("            preloader.style.display = 'none';\n");
-      out.write("        }\n");
+      out.write("            var preloader = document.getElementById('loading');\n");
+      out.write("            const myLoader = () => {\n");
+      out.write("                preloader.style.display = 'none';\n");
+      out.write("            }\n");
+      out.write("        </script>\n");
+      out.write("        <script type=\"text/javascript\">\n");
+      out.write("            const form = document.getElementById(\"form\");\n");
+      out.write("            form.addEventListener(\"submit\", (event) => {\n");
+      out.write("                swal({\n");
+      out.write("                    title: \"Thankyou!\",\n");
+      out.write("                    text: \"Thankyou for your response!\",\n");
+      out.write("                    icon: \"success\",\n");
+      out.write("                });\n");
+      out.write("            })\n");
       out.write("        </script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
