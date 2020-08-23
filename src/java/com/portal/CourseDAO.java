@@ -43,4 +43,21 @@ public class CourseDAO {
         return status;
 
     }
+
+    public static int delete(int id) {
+        int status = 0;
+
+        try {
+            try (Connection con = LearnDAO.getConnection()) {
+                PreparedStatement ps = con.prepareStatement("delete from course where cid=?");
+                ps.setInt(1, id);
+
+                status = ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return status;
+    }
 }

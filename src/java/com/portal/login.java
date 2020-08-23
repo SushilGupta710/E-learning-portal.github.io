@@ -37,8 +37,10 @@ public class login extends HttpServlet {
                     if (rs.next()) {
                         response.sendRedirect("Index.jsp");
                         out.print("<script>alert('Login Successfull!!')</script>");
+                        
                         HttpSession session = request.getSession();
                         session.setAttribute("session_name", username);
+                        
                     } else {
                         request.setAttribute("message", "invalid credientials");
                         request.getRequestDispatcher("login.jsp").include(request, response);

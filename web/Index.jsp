@@ -27,7 +27,7 @@
         <!--ed of loader-->
 
         <!--navbar-->
-        <nav class="navbar navbar-expand-sm navbar-dark bg-danger ">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-danger navbar-fixed">
             <!-- Logo of our website -->
             <a class="navbar-brand" href="Index.jsp"> <img class="nav-img" src="Logo/elearning.png" alt=""> E-learning</a>
 
@@ -73,7 +73,7 @@
                     <% } else {
                     %>
                     <li class="nav-item">
-                        <a class="nav-link" href="profile.jsp?id=${session_name}">Hello ${session_name}</a>
+                        <a class="nav-link" href="profile.jsp?uname=${session_name}">Hello ${session_name}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout">Logout</a>
@@ -202,6 +202,9 @@
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
                                     </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="Courses/html-css.jsp" role="button">Explore now »</a></p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-4">
@@ -214,6 +217,9 @@
                                     </div>
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -228,6 +234,9 @@
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
                                     </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-4">
@@ -240,6 +249,9 @@
                                     </div>
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -254,6 +266,9 @@
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
                                     </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-4">
@@ -266,6 +281,9 @@
                                     </div>
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -280,6 +298,9 @@
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
                                     </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-3 mb-4">
@@ -292,6 +313,9 @@
                                     </div>
                                     <div class="card-body">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
                                     </div>
                                 </div>
                             </div>

@@ -69,7 +69,7 @@ public class addcourse extends HttpServlet {
             int status = CourseDAO.Save(cpo);
             System.out.print(status);
             if (status > 0) {
-                response.sendRedirect("adminpanel.jsp");
+                response.sendRedirect("Coursepanel.jsp");
             } else {
                 out.print("<div class='alert alert-error'> Record not updated </div>");
             }

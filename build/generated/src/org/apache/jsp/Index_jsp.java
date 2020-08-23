@@ -87,7 +87,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <!--ed of loader-->\n");
       out.write("\n");
       out.write("        <!--navbar-->\n");
-      out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-danger \">\n");
+      out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-danger navbar-fixed\">\n");
       out.write("            <!-- Logo of our website -->\n");
       out.write("            <a class=\"navbar-brand\" href=\"Index.jsp\"> <img class=\"nav-img\" src=\"Logo/elearning.png\" alt=\"\"> E-learning</a>\n");
       out.write("\n");
@@ -141,7 +141,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
                     
       out.write("\n");
       out.write("                    <li class=\"nav-item\">\n");
-      out.write("                        <a class=\"nav-link\" href=\"profile.jsp?id=");
+      out.write("                        <a class=\"nav-link\" href=\"profile.jsp?uname=");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${session_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\">Hello ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${session_name}", java.lang.String.class, (PageContext)_jspx_page_context, null));
@@ -276,6 +276,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
       out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"Courses/html-css.jsp\" role=\"button\">Explore now »</a></p>\n");
+      out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"col-md-3 mb-4\">\n");
@@ -288,6 +291,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
+      out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
@@ -302,6 +308,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
       out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
+      out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"col-md-3 mb-4\">\n");
@@ -314,6 +323,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
+      out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
@@ -328,6 +340,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
       out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
+      out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"col-md-3 mb-4\">\n");
@@ -340,6 +355,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
+      out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
@@ -354,6 +372,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
       out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
+      out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");
       out.write("                            <div class=\"col-md-3 mb-4\">\n");
@@ -366,6 +387,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                    </div>\n");
       out.write("                                    <div class=\"card-body\">\n");
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
+      out.write("                                    </div>\n");
+      out.write("                                    <div class=\"card-footer text-center\">\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");

@@ -1,0 +1,27 @@
+SMAP
+viewcourse_jsp.java
+JSP
+*S JSP
+*F
++ 0 viewcourse.jsp
+Courses/viewcourse.jsp
++ 1 bootstraplinks.jsp
+Courses/../bootstraplinks.jsp
+*L
+5,17:54
+21,4:71
+5#1,14:74
+24#0,47:88
+71:135,3
+72,9:138
+81,8:148
+88,3:156
+91,7:160
+97,3:167
+100,2:170,3
+102:176
+103:177,3
+104,3:180
+107:183,3
+108,4:186
+*E
