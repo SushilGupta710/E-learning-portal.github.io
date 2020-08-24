@@ -293,7 +293,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
       out.write("                                    </div>\n");
       out.write("                                    <div class=\"card-footer text-center\">\n");
-      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"Courses/javascript.jsp\" role=\"button\">Explore now »</a></p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");

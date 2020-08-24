@@ -1,8 +1,9 @@
 <%-- 
-    Document   : html-css
-    Created on : 22 Aug, 2020, 11:21:03 PM
+    Document   : javascript
+    Created on : 23 Aug, 2020, 1:21:31 PM
     Author     : Sushil Gupta
 --%>
+
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -22,7 +23,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Html & Css</title>
+        <title>Javascript</title>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
             .nav-img{
@@ -77,48 +78,54 @@
         <!--html and css-->
         <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col">
-                    <%
-                        String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
-                        Statement statement = null;
-                        ResultSet rs = null;
-                        PreparedStatement preset = null;
-                        Connection conn = null;
-                        Class.forName("com.mysql.jdbc.Driver").newInstance();
-                        conn = DriverManager.getConnection(host, "root", "root");
-                    %>
-                    <div class="row">
-                                            <%
-                        statement = conn.createStatement();
+                <div class="col mx-auto">
+                    <div class="card">
+                        <!--                        <div class="card-header text-center bg-danger text-white">
+                                                    <h2>Html and Css</h2>
+                                                </div>-->
+                        <%
+                            String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
+                            Statement statement = null;
+                            ResultSet rs = null;
+                            PreparedStatement preset = null;
+                            Connection conn = null;
+                            Class.forName("com.mysql.jdbc.Driver").newInstance();
+                            conn = DriverManager.getConnection(host, "root", "root");
+                        %>
+                        <div class="card-body">
+                            <div class="row">
+                                <%
+                                    statement = conn.createStatement();
 //                                String uname = (String) session.getAttribute("session_name");
-                        String data = "select * from course where cname='html/css'";
-                        rs = statement.executeQuery(data);
-                        while (rs.next()) {
-                    %>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-header text-center">
-                                    <h3><%=rs.getString("cname")%></h3>
+                                    String data = "select * from course where cname='javascript'";
+                                    rs = statement.executeQuery(data);
+                                    while (rs.next()) {
+                                %>
+                                <div class="col-md-3">
+                                    <div class="card">
+<!--                                        <div class="card-header text-center">
+                                            <h3><%=rs.getString("cname")%></h3>
+                                        </div>-->
+                                        <div class="card-title mr-auto ml-auto">
+                                            <a href='viewcourse.jsp?id=<%=rs.getInt("cid")%>'><img src="../UploadedFile/<%=rs.getString("cimgname")%>" class="img-fluid" height="200px" width="400px" alt=""></a>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><b>Description :- </b><%=rs.getString("cdescription")%></p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <h5>Author :- <%=rs.getString("cauthor")%></h5>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-title mr-auto ml-auto">
-                                    <a href='viewcourse.jsp?id=<%=rs.getInt("cid")%>'><img src="../UploadedFile/<%=rs.getString("cimgname")%>" class="img-fluid" height="200px" width="400px" alt=""></a>
-                                </div>
-                                <div class="card-body">
-                                    <p><b>Description :- </b><%=rs.getString("cdescription")%></p>
-                                </div>
-                                <div class="card-footer">
-                                    <h5>Author :- <%=rs.getString("cauthor")%></h5>
-                                </div>
+                                        <% }%>
                             </div>
                             
                         </div>
-                    <% }%>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!--end of html and css--> 
+        <!--end of html and css--> 
 
-</body>
+    </body>
 </html>

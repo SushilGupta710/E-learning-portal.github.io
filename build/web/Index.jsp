@@ -219,7 +219,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
                                     </div>
                                     <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
+                                        <p><a class="btn btn-danger" href="Courses/javascript.jsp" role="button">Explore now »</a></p>
                                     </div>
                                 </div>
                             </div>

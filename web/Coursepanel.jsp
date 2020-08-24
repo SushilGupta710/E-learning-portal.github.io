@@ -39,7 +39,7 @@
     <body>
         <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col-md-3">
+                <div class="col">
                     <div class="card">
                         <div class="card-header bg-danger text-center text-white">
                             <h2>Courses</h2>
@@ -47,7 +47,7 @@
                         <div class="card-body">
                             <form action="addcourse" method="post" enctype="multipart/form-data">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="font-weight-bold">Course Category:</label>
                                             <select class="form-control" name="coursecat" required>
@@ -62,44 +62,28 @@
                                                 <option value="interview">Prepare for interview</option>
                                             </select>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
                                         <div class="form-group">
                                             <label class="font-weight-bold">Course Url:</label>
                                             <input class="form-control" type="text" name="courseurl" required="true">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
                                         <div class="form-group">
                                             <label class="font-weight-bold">Course Author:</label>
                                             <input class="form-control" type="text" name="courseauth" required="true">
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
+                                    <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="font-weight-bold">Course Description:</label>
                                             <textarea class="form-control" rows="3" name="coursedesc" required="true"></textarea>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
                                         <label class="font-weight-bold">Course Images:</label>
                                         <div class="form-group">
                                             <input type="file" name="courseimg" required="true">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="card-footer">
-                                    <div class="row">
-                                        <div class="col">
-                                            <button class="btn btn-success btn-block">Add</button>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                        <button class="btn btn-success btn-block">Add</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -107,11 +91,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col text-center">
                             <a href="adminpanel.jsp"><< Back to admin panel</a>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <%
                     String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
                     Statement statement = null;
@@ -121,7 +107,7 @@
                     Class.forName("com.mysql.jdbc.Driver").newInstance();
                     conn = DriverManager.getConnection(host, "root", "root");
                 %>
-                <div class="col-md-9">
+                <div class="col">
                     <div class="card">
                         <div class="card-header bg-danger text-center text-white">
                             <h2>List of Courses</h2>
@@ -144,7 +130,7 @@
                                     <tbody>
                                         <%
                                             statement = conn.createStatement();
-    //                                        String uname = (String) session.getAttribute("session_name");
+                                            //                                        String uname = (String) session.getAttribute("session_name");
                                             String data = "select * from course";
                                             rs = statement.executeQuery(data);
                                             while (rs.next()) {
