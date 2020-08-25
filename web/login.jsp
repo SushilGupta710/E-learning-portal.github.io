@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="bootstraplinks.jsp" %>
-<%@include file="navbar.jsp" %>
+<%@include file="BeforeLoginNav.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -20,7 +20,7 @@
             <form class="login-form text-center" action="login" method="post">
                 <div class="col-md-12">
                     <h4 class="text-center text-danger">${message}</h4>
-                    <h1 class="mb-4 font-weight-light text-uppercase">User Login</h1>
+                    <h1 class="mb-4 text-uppercase">User Login</h1>
                     <!--<form action="login" method="post">-->
                     <div class="form-group">
                         <input type="text" class="form-control rounded-pill form-control-lg" name="username" placeholder="Username">

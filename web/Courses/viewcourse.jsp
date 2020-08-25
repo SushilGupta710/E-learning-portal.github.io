@@ -15,8 +15,8 @@
         out.print("<script>alert('Please login first')</script>");
         response.sendRedirect("../login.jsp");
     } else {
-        String name = (String) session.getAttribute("session_name");
-//                out.print("Hello " + name + " Welcome to Profile");
+//        String name = (String) session.getAttribute("session_name");
+////                out.print("Hello " + name + " Welcome to Profile");
     }
 %>
 
@@ -77,6 +77,7 @@
             </div>
         </nav>
         <!--end of navbar-->
+        
         <%
             String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
             Statement statement = null;

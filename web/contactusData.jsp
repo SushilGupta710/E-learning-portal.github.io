@@ -3,8 +3,8 @@
     Created on : 20 Aug, 2020, 11:45:56 PM
     Author     : Sushil Gupta
 --%>
-<%@page import="com.portal.LearnDAO"%>
-<%@page import="com.portal.LearnPOJO"%>
+<%@page import="com.POJO_DAO.LearnDAO"%>
+<%@page import="com.POJO_DAO.LearnPOJO"%>
 <%@include file="bootstraplinks.jsp" %>
 <%
     String name = request.getParameter("fname");

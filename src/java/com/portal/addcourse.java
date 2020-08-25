@@ -5,6 +5,8 @@
  */
 package com.portal;
 
+import com.POJO_DAO.CourseDAO;
+import com.POJO_DAO.CoursePOJO;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;

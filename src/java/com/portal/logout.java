@@ -19,26 +19,17 @@ import javax.servlet.http.HttpSession;
  */
 public class logout extends HttpServlet {
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-//        request.getRequestDispatcher("Index.jsp").include(request, response);
+        
         response.sendRedirect("Index.jsp");
         HttpSession session = request.getSession();
         session.invalidate();//it will destroy the session
         out.print("<script>alert('Logout Successfull!!')</script>");
-//         request.getRequestDispatcher("index.html").include(request,response);
+
         out.close();
     }
 

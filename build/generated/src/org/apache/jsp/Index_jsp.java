@@ -3,8 +3,6 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import com.portal.LearnDAO;
-import com.portal.LearnPOJO;
 
 public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -14,8 +12,9 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants = new java.util.ArrayList<String>(2);
     _jspx_dependants.add("/bootstraplinks.jsp");
+    _jspx_dependants.add("/BeforeLoginNav.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -52,6 +51,22 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("<!--bootstrap css CDN(Content Delivery Network) Link-->\n");
+      out.write("<link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css\" integrity=\"sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z\" crossorigin=\"anonymous\">\n");
+      out.write("\n");
+      out.write("<!--bootstrap js CDN(Content Delivery Network) Link-->\n");
+      out.write("<script src=\"https://code.jquery.com/jquery-3.5.1.slim.min.js\" integrity=\"sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj\" crossorigin=\"anonymous\"></script>\n");
+      out.write("<script src=\"https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js\" integrity=\"sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN\" crossorigin=\"anonymous\"></script>\n");
+      out.write("<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js\" integrity=\"sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV\" crossorigin=\"anonymous\"></script>\n");
+      out.write("\n");
+      out.write("<!--sweet alert-2-->\n");
+      out.write("<script src=\"https://unpkg.com/sweetalert/dist/sweetalert.min.js\"></script>\n");
+      out.write("\n");
+      out.write("<!--font awesome5 js link-->\n");
+      out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
+      out.write('\n');
+      out.write("\n");
+      out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("<!--bootstrap css CDN(Content Delivery Network) Link-->\n");
@@ -69,24 +84,15 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<script src='https://kit.fontawesome.com/a076d05399.js'></script>");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
-      out.write("<html lang=\"en\">\n");
+      out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        <meta charset=\"UTF-8\">\n");
-      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
-      out.write("        <title>Home</title>\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <style>.nav-img{\n");
       out.write("                width:6vh;\n");
       out.write("            }</style>\n");
-      out.write("        <!-- animation link -->\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://unpkg.com/aos@next/dist/aos.css\" />\n");
-      out.write("        <link rel=\"stylesheet\" href=\"css/indexstyle.css\">\n");
       out.write("    </head>\n");
-      out.write("    <body onload=\"myLoader()\">\n");
-      out.write("        <!--loader-->\n");
-      out.write("        <div id=\"loading\"></div>\n");
-      out.write("        <!--ed of loader-->\n");
-      out.write("\n");
-      out.write("        <!--navbar-->\n");
+      out.write("    <body>\n");
+      out.write("               <!--navbar-->\n");
       out.write("        <nav class=\"navbar navbar-expand-sm navbar-dark bg-danger navbar-fixed\">\n");
       out.write("            <!-- Logo of our website -->\n");
       out.write("            <a class=\"navbar-brand\" href=\"Index.jsp\"> <img class=\"nav-img\" src=\"Logo/elearning.png\" alt=\"\"> E-learning</a>\n");
@@ -156,7 +162,26 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                </ul>\n");
       out.write("            </div>\n");
       out.write("        </nav>\n");
-      out.write("        <!--End of navbar-->        \n");
+      out.write("        <!--End of navbar-->       \n");
+      out.write("    </body>\n");
+      out.write("</html>\n");
+      out.write("\n");
+      out.write("<!DOCTYPE html>\n");
+      out.write("<html lang=\"en\">\n");
+      out.write("    <head>\n");
+      out.write("        <meta charset=\"UTF-8\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n");
+      out.write("        <title>Home</title>\n");
+      out.write("        <!-- animation link -->\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://unpkg.com/aos@next/dist/aos.css\" />\n");
+      out.write("        <link rel=\"stylesheet\" href=\"css/indexstyle.css\">\n");
+      out.write("    </head>\n");
+      out.write("    <body onload=\"myLoader()\">\n");
+      out.write("        \n");
+      out.write("        <!--loader-->\n");
+      out.write("        <div id=\"loading\"></div>\n");
+      out.write("        <!--ed of loader-->\n");
+      out.write("\n");
       out.write("\n");
       out.write("        <!--banner div-->\n");
       out.write("        <div class=\"container-fluid myhieght\">\n");
@@ -309,7 +334,7 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!\n");
       out.write("                                    </div>\n");
       out.write("                                    <div class=\"card-footer text-center\">\n");
-      out.write("                                        <p><a class=\"btn btn-danger\" href=\"#\" role=\"button\">Explore now »</a></p>\n");
+      out.write("                                        <p><a class=\"btn btn-danger\" href=\"Courses/programming.jsp\" role=\"button\">Explore now »</a></p>\n");
       out.write("                                    </div>\n");
       out.write("                                </div>\n");
       out.write("                            </div>\n");

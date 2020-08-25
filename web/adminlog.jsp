@@ -5,8 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="navbar.jsp" %>
 <%@include file="bootstraplinks.jsp" %>
+<%@include file="BeforeLoginNav.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>

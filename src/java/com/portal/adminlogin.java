@@ -40,10 +40,10 @@ public class adminlogin extends HttpServlet {
                     ps.setString(2, password);
                     ResultSet rs = ps.executeQuery();
                     if (rs.next()) {
-                        response.sendRedirect("adminpanel.jsp");
+                        response.sendRedirect("AdminTask/adminpanel.jsp");
                         out.print("Welcome," + username);
                         HttpSession session = request.getSession();
-                        session.setAttribute("session_name", username);
+                        session.setAttribute("adminlogin", username);
                     } else {
                         request.setAttribute("message", "invalid credientials");
                         request.getRequestDispatcher("adminlog.jsp").include(request, response);

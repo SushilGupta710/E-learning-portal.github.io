@@ -40,7 +40,7 @@ public class login extends HttpServlet {
                         out.print("<script>alert('Login Successfull!!')</script>");
                         
                         HttpSession session = request.getSession();
-                        session.setAttribute("session_name", username);
+                        session.setAttribute("userlogin", username);
                         
                     } else {
                         request.setAttribute("message", "invalid credientials");

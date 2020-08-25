@@ -4,85 +4,25 @@
     Author     : Sushil Gupta
 --%>
 
-<%@page import="com.portal.LearnDAO"%>
-<%@page import="com.portal.LearnPOJO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="bootstraplinks.jsp" %>
+<%@include file="BeforeLoginNav.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
-        <style>.nav-img{
-                width:6vh;
-            }</style>
         <!-- animation link -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="css/indexstyle.css">
     </head>
     <body onload="myLoader()">
+        
         <!--loader-->
         <div id="loading"></div>
         <!--ed of loader-->
 
-        <!--navbar-->
-        <nav class="navbar navbar-expand-sm navbar-dark bg-danger navbar-fixed">
-            <!-- Logo of our website -->
-            <a class="navbar-brand" href="Index.jsp"> <img class="nav-img" src="Logo/elearning.png" alt=""> E-learning</a>
-
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="Index.jsp#Home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <%
-                        String username = (String) session.getAttribute("session_name");
-                        if (username != null) {
-                    %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Index.jsp#Courses">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Index.jsp#">Take Quiz</a>
-                    </li>
-                    <% }%> 
-                    <li class="nav-item">
-                        <a class="nav-link" href="Index.jsp#About us">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Index.jsp#Contact us">Contact us</a>
-                    </li>          
-                </ul>
-                <ul class="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
-                    <%
-//                        String username = (String) session.getAttribute("session_name");
-                        if (username == null) {
-                    %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.jsp">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="registration.jsp">Register</a>
-                    </li>
-                    <% } else {
-                    %>
-                    <li class="nav-item">
-                        <a class="nav-link" href="profile.jsp?uname=${session_name}">Hello ${session_name}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout">Logout</a>
-                    </li>
-                    <% }%>
-                </ul>
-            </div>
-        </nav>
-        <!--End of navbar-->        
 
         <!--banner div-->
         <div class="container-fluid myhieght">
@@ -235,7 +175,7 @@
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
                                     </div>
                                     <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
+                                        <p><a class="btn btn-danger" href="Courses/programming.jsp" role="button">Explore now »</a></p>
                                     </div>
                                 </div>
                             </div>

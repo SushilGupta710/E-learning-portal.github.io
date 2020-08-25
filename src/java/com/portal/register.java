@@ -5,6 +5,8 @@
  */
 package com.portal;
 
+import com.POJO_DAO.LearnPOJO;
+import com.POJO_DAO.LearnDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
