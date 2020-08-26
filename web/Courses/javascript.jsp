@@ -4,128 +4,95 @@
     Author     : Sushil Gupta
 --%>
 
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.Statement"%>
-<%
-    session = request.getSession(false);
-    if (session.getAttribute("session_name") == null) {
-        out.print("<script>alert('Please login first')</script>");
-        response.sendRedirect("../login.jsp");
-    }
-%>
-<%@include file="../bootstraplinks.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../bootstraplinks.jsp" %>
+<%@include file="../ConnectingToDB.jsp" %>
+<%@include file="../Sessions/UserLoginSession.jsp" %>
+<%@include file="coursenavbar.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Javascript</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
-            .nav-img{
-                width:6vh;   
-            }
-            *{
-                font-family: 'Poppins', sans-serif;
-            }
-        </style>
+        <link rel="stylesheet" href="../css/Universal.css">
     </head>
     <body>
-        <!--nav bar-->
-        <nav class="navbar navbar-expand-sm navbar-dark bg-danger ">
-            <!-- Logo of our website -->
-            <a class="navbar-brand" href="Index.jsp"> <img class="nav-img" src="../Logo/elearning.png" alt=""> E-learning</a>
 
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <!-- Page Content -->
+        <div class="container">
 
-            <div class="collapse navbar-collapse" id="collapsibleNavId">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="../Index.jsp#Home">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Index.jsp#Courses">Courses</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Index.jsp#">Take Quiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Index.jsp#About us">About us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Index.jsp#Contact us">Contact us</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto mr-5 mt-2 mt-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../profile.jsp">Hello ${session_name}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-        <!--end of navbar-->
-
-        <!--html and css-->
-        <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col mx-auto">
-                    <div class="card">
-                        <!--                        <div class="card-header text-center bg-danger text-white">
-                                                    <h2>Html and Css</h2>
-                                                </div>-->
-                        <%
-                            String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
-                            Statement statement = null;
-                            ResultSet rs = null;
-                            PreparedStatement preset = null;
-                            Connection conn = null;
-                            Class.forName("com.mysql.jdbc.Driver").newInstance();
-                            conn = DriverManager.getConnection(host, "root", "root");
-                        %>
-                        <div class="card-body">
-                            <div class="row">
-                                <%
-                                    statement = conn.createStatement();
-//                                String uname = (String) session.getAttribute("session_name");
-                                    String data = "select * from course where cname='javascript'";
-                                    rs = statement.executeQuery(data);
-                                    while (rs.next()) {
-                                %>
-                                <div class="col-md-3">
-                                    <div class="card">
-<!--                                        <div class="card-header text-center">
-                                            <h3><%=rs.getString("cname")%></h3>
-                                        </div>-->
-                                        <div class="card-title mr-auto ml-auto">
-                                            <a href='viewcourse.jsp?id=<%=rs.getInt("cid")%>'><img src="../UploadedFile/<%=rs.getString("cimgname")%>" class="img-fluid" height="200px" width="400px" alt=""></a>
-                                        </div>
-                                        <div class="card-body">
-                                            <p><b>Description :- </b><%=rs.getString("cdescription")%></p>
-                                        </div>
-                                        <div class="card-footer">
-                                            <h5>Author :- <%=rs.getString("cauthor")%></h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                        <% }%>
-                            </div>
-                            
-                        </div>
+
+                <div class="col-lg-3">
+                    <h1 class="my-4">Courses</h1>
+                    <div class="list-group">
+                        <a href="html-css.jsp" class="list-group-item">Html and Css</a>
+                        <a href="javascript.jsp" class="list-group-item">JavaScript</a>
+                        <a href="programming.jsp" class="list-group-item">Programming</a>
+                        <a href="ds-algo.jsp" class="list-group-item">Ds And Algorithm</a>
+                        <a href="artificial.jsp" class="list-group-item">Artificial Intelligence</a>
+                        <a href="serverside.jsp" class="list-group-item">Server Side</a>
+                        <a href="projects.jsp" class="list-group-item">Learn with projects</a>
+                        <a href="interview.jsp" class="list-group-item">Prepare for interview</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--end of html and css--> 
+                <!-- /.col-lg-3 -->
 
+                <div class="col-lg-9 mt-5">
+                    <div class="row">
+                        <%  statement = conn.createStatement();
+                            String data = "select * from course where cname='javaScript'";
+                            rs = statement.executeQuery(data);
+                            while (rs.next()) {
+                        %>
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card h-100">
+                                <a href='viewcourse.jsp?id=<%=rs.getInt("cid")%>'><img class="card-img-top" src="../UploadedFile/<%=rs.getString("cimgname")%>" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title text-center">
+                                        <a href='viewcourse.jsp?id=<%=rs.getInt("cid")%>'><%=rs.getString("cname")%></a>
+                                    </h4>
+
+                                    <p class="card-text"><b>Description :- </b><%=rs.getString("cdescription")%></p>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                                </div>
+                            </div>
+                        </div>
+                        <%}%>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.col-lg-9 -->         
+            </div>
+            <!-- /.row -->
+            <!-- Pagination -->
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- end of Pagination -->
+        </div>
+        <!-- /.container -->
     </body>
 </html>

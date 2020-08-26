@@ -28,6 +28,14 @@
         <servlet-name>javascript</servlet-name>
         <servlet-class>javascript</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>addmember</servlet-name>
+        <servlet-class>com.portal.addmember</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>addindcourse</servlet-name>
+        <servlet-class>com.portal.addindcourse</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
@@ -55,6 +63,14 @@
     <servlet-mapping>
         <servlet-name>javascript</servlet-name>
         <url-pattern>/javascript</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addmember</servlet-name>
+        <url-pattern>/addmember</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addindcourse</servlet-name>
+        <url-pattern>/addindcourse</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,7 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
 *{
     box-sizing: border-box !important;
-    font-family: 'Poppins', sans-serif;
     font-size: 16px;
     scroll-behavior: smooth;
 }
@@ -17,14 +15,6 @@
     margin:0% !important;padding: 0% !important;
     /* min-height: 333px; */
 }
-/*.banner-img-2{
-    background-image: url("/Images/banner2-img.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-     width: 650px; 
-     min-height: 653px; 
-}*/
 
 .card{
     opacity: 0.9;
@@ -38,3 +28,4 @@
 .nav-img{
     width:6vh;
 }
+

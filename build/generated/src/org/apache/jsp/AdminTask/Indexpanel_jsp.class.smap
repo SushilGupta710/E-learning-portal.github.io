@@ -1,0 +1,25 @@
+SMAP
+Indexpanel_jsp.java
+JSP
+*S JSP
+*F
++ 0 Indexpanel.jsp
+AdminTask/Indexpanel.jsp
++ 1 bootstraplinks.jsp
+AdminTask/../bootstraplinks.jsp
++ 2 AfterAdminLoginNav.jsp
+AdminTask/../AfterAdminLoginNav.jsp
++ 3 ConnectingToDB.jsp
+AdminTask/../ConnectingToDB.jsp
+*L
+5,4:57
+5#1,21:60
+8#0:80
+5#2,35:81
+40:116,3
+41,10:119
+9#0,2:128
+5#3,16:130
+20:146
+11#0,142:147
+*E

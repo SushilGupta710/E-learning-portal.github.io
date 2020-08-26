@@ -5,20 +5,10 @@
 --%>
 
 <%@page import="com.POJO_DAO.LearnDAO"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="../Sessions/AdminLoginSession.jsp" %>
+<%@include file="../ConnectingToDB.jsp" %>
 <%
-    session = request.getSession(false);
-    if (session.getAttribute("session_name") == null) {
-        out.print("<script>alert('please login first');</script>");
-        response.sendRedirect("../adminlog.jsp");
-    } else {
-
-    }
     String name = request.getParameter("uname");
     LearnDAO.delete(name);
     response.sendRedirect("Userpanel.jsp");

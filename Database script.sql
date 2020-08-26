@@ -35,11 +35,32 @@ cimgname nvarchar(255),
 cimgpath nvarchar(255)
 ); 
 
+create table index_course(
+i_cid int primary key auto_increment,
+i_cname nvarchar(255),
+i_category nvarchar(255),
+i_cdescription nvarchar(255),
+i_cimgname nvarchar(255),
+i_cimgpath nvarchar(255)
+); 
+
+create table index_member(
+mid int primary key auto_increment,
+mname nvarchar(255),
+mskill nvarchar(255),
+mdescription nvarchar(255),
+mimgname nvarchar(255),
+mimgpath nvarchar(255)
+); 
+
 select * from registration;
 select * from adminreg;
 select * from contactus;
 select * from course;
+select * from index_member;
+select * from index_course;
 
+select * from course where cname="programming";
 insert into adminreg(adminuname,adminpass) values("admin1","1234"); 
 
 select * from registration where runame="sushil1050";

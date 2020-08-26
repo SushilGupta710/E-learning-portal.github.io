@@ -7,18 +7,22 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="bootstraplinks.jsp" %>
 <%@include file="BeforeLoginNav.jsp" %>
+<%@include file="ConnectingToDB.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Home</title>
+        <!--Title img-->
+        <link rel="icon" type="image/x-icon" href="Logo/elearning.png" />
         <!-- animation link -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="stylesheet" href="css/indexstyle.css">
+        <link rel="stylesheet" href="css/Universal.css">
     </head>
     <body onload="myLoader()">
-        
+
         <!--loader-->
         <div id="loading"></div>
         <!--ed of loader-->
@@ -131,134 +135,28 @@
                 <div class="row">
                     <div class="col">
                         <div class="row">
+                            <%  statement = conn.createStatement();
+                                String data = "select * from index_course";
+                                rs = statement.executeQuery(data);
+                                while (rs.next()) {
+                            %>
                             <div class="col-md-3 mb-4">
                                 <div class="card">
                                     <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/html-css.jpg" class="img-fluid" alt="">
+                                        <img src="CourseUploadFile/<%=rs.getString("i_cimgname")%>" class="img-fluid" alt="<%=rs.getString("i_category")%>">
                                     </div>
                                     <div class="card-header text-center">
-                                        <h3>Html and CSS</h3>
+                                        <h3><%=rs.getString("i_cname")%></h3>
                                     </div>
                                     <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
+                                        <%=rs.getString("i_cdescription")%>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="Courses/html-css.jsp" role="button">Explore now »</a></p>
+                                        <p><a class="btn btn-danger" href="Courses/allcourses.jsp" role="button">Explore now »</a></p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/js.png" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="card-header text-center">
-                                        <h3>JavaScript</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="Courses/javascript.jsp" role="button">Explore now »</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/programming.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="card-header text-center">
-                                        <h3>Programming</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="Courses/programming.jsp" role="button">Explore now »</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/backend-language.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="card-header text-center">
-                                        <h3>Server-Side</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/ds-algo.jpeg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="card-header text-center">
-                                        <h3>DS& Algorithm</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/Artificial-Intelligence.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="card-header text-center">
-                                        <h3>Artifical inteligence</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/project.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="card-header">
-                                        <h3>Learn with Projects</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3 mb-4">
-                                <div class="card">
-                                    <div class="card-title mr-auto ml-auto">
-                                        <img src="Logo/interview.jpg" class="img-fluid" alt="">
-                                    </div>
-                                    <div class="card-header text-center">
-                                        <h3>Prepare for interview</h3>
-                                    </div>
-                                    <div class="card-body">
-                                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis facilis pariatur amet dolore, ipsa sint vero consequuntur error culpa, itaque alias velit rem molestias aspernatur modi odio autem harum odit!
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <p><a class="btn btn-danger" href="#" role="button">Explore now »</a></p>
-                                    </div>
-                                </div>
-                            </div>
+                            <%}%>
                         </div>
                     </div>
                 </div>
@@ -290,33 +188,19 @@
                 <br>
                 <!-- Three columns of text below the carousel -->
                 <div class="row">
+                    <%  statement = conn.createStatement();
+                        String data1 = "select * from index_member";
+                        rs = statement.executeQuery(data1);
+                        while (rs.next()) {
+                    %>
                     <div class="col-md-3 text-center">
-                        <img src="Logo/programmer.png" class="bd-placeholder-img rounded-circle" width="140" height="140"alt="">
-                        <h2>Pratik</h2>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                        <img src="UploadedFile/<%=rs.getString("mimgname")%>" class="bd-placeholder-img rounded-circle" width="140" height="140" alt="<%=rs.getString("mimgname")%>">
+                        <h2><%=rs.getString("mname")%></h2>
+                        <p><%=rs.getString("mdescription")%></p>
                         <p><a class="btn btn-danger" href="#" role="button">View details »</a></p>
                     </div><!-- /.col-lg-4 -->
-                    <div class="col-md-3 text-center">
-                        <img src="Logo/3.png" class="bd-placeholder-img rounded-circle" width="140" height="140"alt="">
-                        <h2>Sanklp</h2>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>            
-                        <p><a class="btn btn-danger" href="#" role="button">View details »</a></p>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-md-3 text-center">
-                        <img src="Logo/man.png" class="bd-placeholder-img rounded-circle" width="140" height="140"alt="">
-                        <h2>Ankit</h2>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>            
-                        <p><a class="btn btn-danger" href="#" role="button">View details »</a></p>
-                    </div><!-- /.col-lg-4 -->
-                    <div class="col-md-3 text-center">
-                        <img src="Logo/user.png" class="bd-placeholder-img rounded-circle" width="140" height="140"alt="">
-                        <h2>Sushil</h2>
-                        <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>            
-                        <p><a class="btn btn-danger" href="#" role="button">View details »</a></p>
-                    </div><!-- /.col-lg-4 -->
+                    <%}%>
                 </div><!-- /.row -->
-
-
             </div>
         </section>
         <!-- End of About us div -->
@@ -376,9 +260,9 @@
                 </div>
             </div>
         </section>
-        <!-- End of contact us div -->
-        <!-- Contact us div -->
+        <!-- End of contact us div -->	
 
+        <!-- Footer us div -->
         <section id="Footer">
             <div class="container-fluid bg-danger ">
                 <div class="footer p-3 text-center">
@@ -386,7 +270,8 @@
                 </div>
             </div>
         </section>
-        <!-- End of contact us div -->
+        <!-- End of Footer us div -->
+
         <script type="text/javascript">
             var preloader = document.getElementById('loading');
             const myLoader = () => {

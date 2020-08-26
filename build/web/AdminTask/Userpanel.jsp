@@ -14,63 +14,105 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>User panel</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
-            *{
-                font-family: 'Poppins', sans-serif;
-            }
-        </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var table = $('#myTable').DataTable({
+                    responsive: true,
+                    paging: false
+                });
+
+                new $.fn.dataTable.FixedHeader(table);
+            });
+            $(document).ready(function () {
+                var table = $('#myTable1').DataTable({
+                    responsive: true,
+                    paging: false
+                });
+
+                new $.fn.dataTable.FixedHeader(table);
+            });
+        </script>
+        <link rel="stylesheet" href="../css/Universal.css">
     </head>
     <body>
         <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col-md-8 mx-auto">
+                <div class="col-md-7 ">
                     <div class="card">
-                        <div class="card-header text-center bg-danger text-white">
+                        <div class="card-header text-center bg-secondary text-white">
                             <h2>List of users</h2>
                         </div>
                         <div class="card-body">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope='col'>Id</th>
-                                        <th scope='col'>Username</th>
-                                        <th scope='col'>Full name</th>
-                                        <th scope='col'>Email</th>
-                                        <th scope='col'>Contact</th>
-                                        <th class='text-center' scope='col'>Update</th>
-                                        <th class='text-center' scope='col'>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%
-                                        statement = conn.createStatement();
-                                        String uname = (String) session.getAttribute("session_name");
-                                        String data = "select * from registration";
-                                        rs = statement.executeQuery(data);
-                                        while (rs.next()) {
-                                    %>
-                                    <tr>
-                                        <td><%=rs.getInt("id")%></td>
-                                        <td><%=rs.getString("runame")%></td>
-                                        <td><%=rs.getString("rname")%></td>
-                                        <td><%=rs.getString("remail")%></td>
-                                        <td><%=rs.getString("rcontact")%></td>
-                                        <td class='text-center'><a href='updateuser.jsp?uname=<%=rs.getString("runame")%>' title='Edit'><i class='fa fa-edit'></i></a></td>
-                                        <td class='text-center'><a href='deleteuser.jsp?uname=<%=rs.getString("runame")%>' title='Delete'><i class='fa fa-trash text-danger'></i></a></td>
-                                    </tr>
-                                    <% }%>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col text-right">
-                            <a href="adminpanel.jsp"><< Back to admin panel </a>
+                            <div class="table-responsive-xl">
+                                <table class="display" id="myTable" >
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th scope='col'>Id</th>
+                                            <th scope='col'>Username</th>
+                                            <th scope='col'>Full name</th>
+                                            <th scope='col'>Email</th>
+                                            <th scope='col'>Contact</th>
+                                            <th class='text-center' scope='col'>Update</th>
+                                            <th class='text-center' scope='col'>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%  statement = conn.createStatement();
+                                            String data = "select * from registration";
+                                            rs = statement.executeQuery(data);
+                                            while (rs.next()) {
+                                        %>
+                                        <tr>
+                                            <td><%=rs.getInt("id")%></td>
+                                            <td><%=rs.getString("runame")%></td>
+                                            <td><%=rs.getString("rname")%></td>
+                                            <td><%=rs.getString("remail")%></td>
+                                            <td><%=rs.getString("rcontact")%></td>
+                                            <td class='text-center'><a href='updateuser.jsp?uname=<%=rs.getString("runame")%>' title='Edit'><i class='fa fa-edit'></i></a></td>
+                                            <td class='text-center'><a href='deleteuser.jsp?uname=<%=rs.getString("runame")%>' title='Delete'><i class='fa fa-trash text-danger'></i></a></td>
+                                        </tr>
+                                        <% }%>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </body>
-</html>
+                <div class="col-md-5 ">
+                    <div class="card">
+                        <div class="card-header text-center bg-secondary text-white">
+                            <h2>Message</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive-xl">
+                                <table class="display" id="myTable1" >
+                                    <thead class="table-success">
+                                        <tr>
+                                            <th scope='col'>Id</th>
+                                            <th scope='col'>Full name</th>
+                                            <th scope='col'>Email</th>
+                                            <th scope='col'>Message</th>
+                                            <th class='text-center' scope='col'>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%  statement = conn.createStatement();
+                                            String data1 = "select * from contactus";
+                                            rs = statement.executeQuery(data1);
+                                            while (rs.next()) {
+                                        %>
+                                        <tr>
+                                            <td><%=rs.getInt("id")%></td>
+                                            <td><%=rs.getString("fname")%></td>
+                                            <td><%=rs.getString("email")%></td>
+                                            <td><%=rs.getString("message")%></td>
+                                            <td class='text-center'><a href='deletecontact.jsp?id=<%=rs.getString("id")%>' title='Delete'><i class='fa fa-trash text-danger'></i></a></td>
+                                        </tr>
+                                        <% }%>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </html>

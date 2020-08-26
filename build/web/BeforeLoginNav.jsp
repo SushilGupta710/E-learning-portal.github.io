@@ -39,7 +39,7 @@
                         <a class="nav-link" href="Index.jsp#Courses">Courses</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Index.jsp#">Take Quiz</a>
+                        <a class="nav-link" href="Quiz/Quiz.jsp">Take Quiz</a>
                     </li>
                     <% }%> 
                     <li class="nav-item">

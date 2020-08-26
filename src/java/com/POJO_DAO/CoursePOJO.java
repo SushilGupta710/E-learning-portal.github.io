@@ -12,6 +12,8 @@ package com.POJO_DAO;
 public class CoursePOJO {
     
     private String name;
+    private String category;
+    private String skill;
     private String url;
     private String author;
     private String description;
@@ -36,6 +38,14 @@ public class CoursePOJO {
 
     public String getImagename() {
         return imagename;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getSkill() {
+        return skill;
     }
 
     public String getImagepath() {
@@ -64,6 +74,14 @@ public class CoursePOJO {
 
     public void setImagepath(String imagepath) {
         this.imagepath = imagepath;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 
 }

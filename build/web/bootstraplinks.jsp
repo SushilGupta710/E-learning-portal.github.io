@@ -3,6 +3,11 @@
     Created on : 13 Aug, 2020, 3:50:11 PM
     Author     : Sushil Gupta
 --%>
+<!--data table css cdn-->
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css"/>
+<!--<link rel="stylesheet" type="text/css" href=""/>-->
 <!--bootstrap css CDN(Content Delivery Network) Link-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
@@ -16,3 +21,11 @@
 
 <!--font awesome5 js link-->
 <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+<!--Datatable Script CDN-->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
+
+<!--<script type="text/javascript" charset="utf8" src=""></script>-->
+

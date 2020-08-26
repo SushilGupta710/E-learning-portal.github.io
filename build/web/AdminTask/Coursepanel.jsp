@@ -3,38 +3,38 @@
     Created on : 21 Aug, 2020, 10:29:49 PM
     Author     : Sushil Gupta
 --%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="java.sql.PreparedStatement"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Statement"%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="../bootstraplinks.jsp" %>
 <%@include file="../AfterAdminLoginNav.jsp" %>
 <%@include file="../Sessions/AdminLoginSession.jsp" %>
+<%@include file="../ConnectingToDB.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Course panel</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
-            *{
-                font-family: 'Poppins', sans-serif;
-            }
-        </style>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                var table = $('#myTable').DataTable({
+                    responsive: true,
+                    paging:false
+                });
+
+                new $.fn.dataTable.FixedHeader(table);
+            });
+        </script>
+        <link rel="stylesheet" href="../css/Universal.css">
     </head>
     <body>
         <div class="container-fluid mt-3">
             <div class="row">
-                <div class="col">
+                <div class="col-md-10 mx-auto">
                     <div class="card">
-                        <div class="card-header bg-danger text-center text-white">
-                            <h2>Courses</h2>
+                        <div class="card-header text-center bg-secondary">
+                            <h2>Add Courses</h2>
                         </div>
                         <div class="card-body">
-                            <form action="addcourse" method="post" enctype="multipart/form-data">
+                            <form action="../addcourse" method="post" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -71,7 +71,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
-                                        <button class="btn btn-success btn-block">Add</button>
+                                                <button class="btn btn-success btn-block">Add</button>
                                             </div>
                                         </div>
                                     </div>
@@ -86,25 +86,17 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
-                <%
-                    String host = "jdbc:mysql://localhost:3306/elearning?autoReconnect=true&useSSL=false";
-                    Statement statement = null;
-                    ResultSet rs = null;
-                    PreparedStatement preset = null;
-                    Connection conn = null;
-                    Class.forName("com.mysql.jdbc.Driver").newInstance();
-                    conn = DriverManager.getConnection(host, "root", "root");
-                %>
                 <div class="col">
                     <div class="card">
-                        <div class="card-header bg-danger text-center text-white">
+                        <div class="card-header bg-secondary text-center">
                             <h2>List of Courses</h2>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive-xl">
-                                <table class="table">
-                                    <thead class="table-danger">
+                                <table id="myTable" class="display">
+                                    <thead class="table-success">
                                         <tr>
                                             <th scope='col'>Cid</th>
                                             <th scope='col'>Course name</th>
@@ -117,8 +109,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <%
-                                            statement = conn.createStatement();
+                                        <%                                            statement = conn.createStatement();
                                             //                                        String uname = (String) session.getAttribute("session_name");
                                             String data = "select * from course";
                                             rs = statement.executeQuery(data);
@@ -142,6 +133,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </body>
 </html>
